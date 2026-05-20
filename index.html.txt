@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>印流PDflow</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <h1>欢迎使用印流PDflow</h1>
+    <p>设计师专用的轻量级PDF工具箱，官网正在建设中。</p>
+</body>
+</html>
