@@ -23,7 +23,7 @@ en:{
 'lang.toggle':'中',
 
 /* Hero */
-'hero.badge':'v1.1 Now Available',
+'hero.badge':'v1.2 Now Available',
 'hero.h1':'Create Documents<br>Like Designing.',
 'hero.sub':'Visual document builder with PDF conversion, OCR, and professional export. No cloud. No signup.',
 'hero.cta.primary':'Download Free',
@@ -104,7 +104,7 @@ en:{
 's6.q4':'How does PDF → Excel conversion work?',
 's6.a4':'PyMuPDF + RapidOCR for scanned documents. Table structure preserved. Columns aligned globally. Images embedded directly into Excel cells.',
 's6.q5':"What's the file size and version?",
-'s6.a5':'Current version is v1.1.0. About 78 MB installed. Works on Windows 10 and 11. SHA256 checksum available on the download page.',
+'s6.a5':'Current version is v1.2.0. About 78 MB installed. Works on Windows 10 and 11. SHA256 checksum available on the download page.',
 's6.q6':'Can I use it commercially?',
 's6.a6':'Absolutely. Generate invoices, contracts, and reports for your business or clients with no restrictions. Free for commercial use.',
 
@@ -151,7 +151,7 @@ zh:{
 'lang.toggle':'EN',
 
 /* Hero */
-'hero.badge':'v1.1 现已发布',
+'hero.badge':'v1.2 现已发布',
 'hero.h1':'像设计一样<br>创建文档',
 'hero.sub':'可视化文档生成工具，集成 PDF 转换、OCR 和专业导出。无需联网，无需注册。',
 'hero.cta.primary':'免费下载',
@@ -230,7 +230,7 @@ zh:{
 's6.q4':'PDF → Excel 转换原理？',
 's6.a4':'PyMuPDF + RapidOCR 识别扫描文档，保留表格结构，全局对齐列宽，图片直接嵌入 Excel 单元格。',
 's6.q5':'文件大小和版本？',
-'s6.a5':'当前版本 v1.1.0，安装约 78 MB，支持 Windows 10/11。SHA256 校验和见下载页。',
+'s6.a5':'当前版本 v1.2.0，安装约 78 MB，支持 Windows 10/11。SHA256 校验和见下载页。',
 's6.q6':'可以商用吗？',
 's6.a6':'完全可以。为你的业务或客户生成发票、合同、报告，无任何限制。商用免费。',
 
