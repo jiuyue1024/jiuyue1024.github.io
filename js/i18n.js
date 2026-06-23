@@ -498,7 +498,8 @@ zh:{
 'ab.c4.p':'v1.2（当前）— 6+ 模板与 OCR 调优。v1.3 — 可视化布局画布，支持吸附辅助线。v2.0 — PDflow Studio：统一的创作、排版与 AI 辅助导出。',
 'ab.cta.h2':'现在就试 PDflow',
 'ab.cta.p':'免费下载，本地优先，无需注册。',
-'ab.cta.meta':'v1.2.0 · Windows 10/11 · 215 MB · MIT 协议'
+'ab.cta.meta':'v1.2.0 · Windows 10/11 · 215 MB · MIT 协议',
+}
 };
 
 var KEY='pdflow_lang';
