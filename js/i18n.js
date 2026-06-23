@@ -174,7 +174,23 @@ en:{
 'blog.p2i.title':'PDF to Image: When and How to Convert','blog.p2i.meta':'May 12, 2026 · 4 min read','blog.p2i.desc':'Use cases for converting PDF pages to images. High-res export for presentations and print-ready assets.',
 'blog.v11.title':'PDflow v1.1: What\'s New (Archive)','blog.v11.meta':'May 8, 2026 · 3 min read','blog.v11.desc':'Release notes for PDflow v1.1. Improved OCR, new templates, faster export. Superseded by v1.2.',
 'blog.why.title':'Why We Built PDflow: A Local-First Document Platform','blog.why.meta':'May 2, 2026 · 5 min read','blog.why.desc':'The story behind PDflow. Why local processing and privacy-first design matter more than ever.',
-'blog.vsp.title':'PDflow vs PDFgear: Which Tool Fits Your Workflow?','blog.vsp.meta':'Apr 28, 2026 · 7 min read','blog.vsp.desc':'Detailed comparison. Features, privacy, templates, OCR quality, and which tool is right for you.'
+'blog.vsp.title':'PDflow vs PDFgear: Which Tool Fits Your Workflow?','blog.vsp.meta':'Apr 28, 2026 · 7 min read','blog.vsp.desc':'Detailed comparison. Features, privacy, templates, OCR quality, and which tool is right for you.',
+
+/* Subpage: PDF → Excel */
+'pe.tag':'PDF → Excel',
+'pe.h1':'Convert PDF to Excel<br>with OCR.',
+'pe.sub':'Preserve table structure. Local-first processing. 99% accuracy on scanned documents. No upload, no signup.',
+'pe.cta.primary':'Download Free',
+'pe.cta.secondary':'Learn More',
+'pe.f1.t':'Table Structure Preserved',
+'pe.f1.s':'Columns, rows, and merged cells stay aligned. Edit in Excel right after export.',
+'pe.f2.t':'OCR for Scanned PDFs',
+'pe.f2.s':'RapidOCR engine handles scanned invoices, receipts, and contracts with 99% accuracy.',
+'pe.f3.t':'100% Local Processing',
+'pe.f3.s':'Your documents never leave your machine. No cloud upload, no tracking, full privacy.',
+'pe.cta.h2':'Start converting PDFs to Excel<br>in seconds.',
+'pe.cta.p':'Free download. Local-first. No signup required.',
+'pe.cta.meta':'v1.2.0 · Windows 10/11 · 215 MB'
 },
 zh:{
 /* Meta */
@@ -342,8 +358,23 @@ zh:{
 'blog.p2i.title':'PDF 转图片：何时以及如何转换','blog.p2i.meta':'2026 年 5 月 12 日 · 阅读约 4 分钟','blog.p2i.desc':'PDF 转图片的应用场景。高分辨率导出用于演示、社交媒体预览、印刷级素材。',
 'blog.v11.title':'PDflow v1.1: 版本更新说明（归档）','blog.v11.meta':'2026 年 5 月 8 日 · 阅读约 3 分钟','blog.v11.desc':'PDflow v1.1 发布说明。OCR 准确率提升、新增模板、导出引擎加速。已被 v1.2 替代。',
 'blog.why.title':'我们为什么打造 PDflow：本地优先的文档平台','blog.why.meta':'2026 年 5 月 2 日 · 阅读约 5 分钟','blog.why.desc':'PDflow 背后的故事。为什么本地处理、隐私优先设计、专业模板在现代文档工作流中愈发重要。',
-'blog.vsp.title':'PDflow vs PDFgear：哪款适合你的工作流？','blog.vsp.meta':'2026 年 4 月 28 日 · 阅读约 7 分钟','blog.vsp.desc':'PDflow 与 PDFgear 详细对比。功能、隐私、模板支持、OCR 质量，以及哪款工具更适合设计师与团队。'
-}
+'blog.vsp.title':'PDflow vs PDFgear：哪款适合你的工作流？','blog.vsp.meta':'2026 年 4 月 28 日 · 阅读约 7 分钟','blog.vsp.desc':'PDflow 与 PDFgear 详细对比。功能、隐私、模板支持、OCR 质量，以及哪款工具更适合设计师与团队。',
+
+/* Subpage: PDF → Excel */
+'pe.tag':'PDF → Excel',
+'pe.h1':'PDF 转 Excel<br>自带 OCR。',
+'pe.sub':'保留表格结构，本地优先处理，扫描文档 99% 准确率。无需上传，无需注册。',
+'pe.cta.primary':'免费下载',
+'pe.cta.secondary':'了解更多',
+'pe.f1.t':'表格结构完整保留',
+'pe.f1.s':'列、行、合并单元格精确对齐，导出后可直接在 Excel 中编辑。',
+'pe.f2.t':'扫描 PDF OCR 识别',
+'pe.f2.s':'RapidOCR 引擎处理扫描件发票、收据、合同，准确率高达 99%。',
+'pe.f3.t':'100% 本地处理',
+'pe.f3.s':'文档不出本机，无云端上传，无追踪，隐私完整保护。',
+'pe.cta.h2':'几秒即可将 PDF<br>转为 Excel',
+'pe.cta.p':'免费下载，本地优先，无需注册。',
+'pe.cta.meta':'v1.2.0 · Windows 10/11 · 215 MB'
 };
 
 var KEY='pdflow_lang';
