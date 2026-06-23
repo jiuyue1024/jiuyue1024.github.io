@@ -1,109 +1,134 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>PDF → Excel — PDflow</title>
-<meta name="description" content="Convert PDF to Excel with OCR. Preserve table structure. Local-first, no upload. 99% accuracy on scanned documents.">
-<meta property="og:title" content="PDF → Excel — PDflow">
-<meta property="og:description" content="Convert PDF to Excel with OCR. Preserve table structure. Local-first, no upload.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#060607">
+<title data-i18n="pe.tag">PDF → Excel — PDflow</title>
+<meta name="description" data-i18n="pe.sub" content="Convert PDF to Excel with OCR. Preserve table structure. Local-first, no upload. 99% accuracy on scanned documents.">
+<meta property="og:title" data-i18n="pe.tag" content="PDF → Excel — PDflow">
+<meta property="og:description" data-i18n="pe.sub" content="Convert PDF to Excel with OCR. Local-first, no upload.">
 <link rel="icon" href="screens/logo/pdflow-logo-icon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style/global.css">
+<style>
+/* Subpage-specific (extends global.css) */
+.page-hero{padding:160px 0 80px;text-align:center;position:relative}
+.page-hero .container{max-width:780px}
+.page-h1{font-size:clamp(40px,5.5vw,64px);font-weight:700;letter-spacing:-.035em;line-height:1.06;margin-bottom:24px;color:#fff}
+.page-sub{font-size:18px;line-height:1.65;color:var(--text-2);max-width:620px;margin:0 auto 36px}
+.page-acts{display:inline-flex;gap:12px;flex-wrap:wrap;justify-content:center}
+
+.page-features{padding:40px 0 100px}
+.page-features .container{max-width:1100px}
+.pf-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.pf-card{padding:36px 28px;background:linear-gradient(180deg,rgba(255,255,255,.025),rgba(255,255,255,.01));border:1px solid var(--border);border-radius:18px;transition:all 350ms var(--ease)}
+.pf-card:hover{border-color:var(--border-hover);transform:translateY(-4px);background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.015))}
+.pf-icon{width:48px;height:48px;border-radius:12px;background:rgba(77,124,254,.12);border:1px solid rgba(77,124,254,.2);display:flex;align-items:center;justify-content:center;margin-bottom:20px}
+.pf-card h3{font-size:19px;font-weight:600;letter-spacing:-.01em;margin-bottom:10px;color:#fff}
+.pf-card p{font-size:14px;line-height:1.7;color:var(--text-2)}
+
+.page-cta{padding:100px 0 120px;text-align:center;border-top:1px solid var(--border);margin-top:40px}
+.page-cta h2{font-size:clamp(32px,4.5vw,46px);font-weight:700;letter-spacing:-.03em;line-height:1.12;margin-bottom:16px;color:#fff}
+.page-cta p{font-size:17px;color:var(--text-2);margin-bottom:32px}
+.page-cta-meta{margin-top:24px;font-size:13px;color:var(--text-3)}
+
+@media(max-width:900px){.pf-grid{grid-template-columns:1fr}.pf-card{padding:28px 24px}}
+@media(max-width:768px){.page-hero{padding:120px 0 60px}}
+</style>
 </head>
 <body>
-<nav class="nav" role="navigation">
-    <div class="nav-in">
-        <a href="index.html" class="nav-brand">
-            <img src="screens/logo/pdflow-logo-icon.png" alt="PDflow" width="28" height="28" style="border-radius:6px">
-            <span>PDflow</span>
-        </a>
-        <div class="nav-links">
-            <a href="index.html" class="nav-link">← Back to Home</a>
-        </div>
-        <div class="nav-actions">
-            <a href="https://github.com/jiuyue1024/PDflow/releases/download/v1.2/PDFlow_V1.2_Setup.exe" class="btn btn-primary btn-sm">Download Free</a>
-        </div>
+<div class="noise" aria-hidden="true"></div>
+<div class="aurora" aria-hidden="true"><div class="aurora-spot s1"></div><div class="aurora-spot s2"></div><div class="aurora-spot s3"></div></div>
+
+<nav class="nav" role="navigation" aria-label="Main">
+<div class="nav-inner">
+    <a href="index.html" class="nav-brand"><img src="screens/logo/pdflow-logo-icon.png" alt="PDflow" width="28" height="28" style="border-radius:6px"><span>PDflow</span></a>
+    <div class="nav-links">
+        <a href="index.html#product" class="nav-link" data-i18n="nav.product">Product</a>
+        <a href="index.html#compare" class="nav-link" data-i18n="nav.compare">Compare</a>
+        <a href="index.html#cases" class="nav-link" data-i18n="nav.cases">Cases</a>
+        <a href="index.html#faq" class="nav-link" data-i18n="nav.faq">FAQ</a>
+        <a href="blog.html" class="nav-link" data-i18n="nav.blog">Blog</a>
     </div>
+    <div class="nav-actions">
+        <button class="lang-toggle" id="langToggle" data-lang="en" aria-label="Toggle language"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20"/></svg><span data-i18n="lang.toggle">中</span></button>
+        <a href="https://github.com/jiuyue1024/PDflow/releases/download/v1.2/PDFlow_V1.2_Setup.exe" class="btn btn-primary btn-sm" data-i18n="nav.download">Download Free</a>
+    </div>
+</div>
 </nav>
 
-<main>
 <section class="page-hero">
-    <span class="s-tag">PDF → Excel</span>
-    <h1 class="page-h1">Convert PDF to Excel<br>with OCR.</h1>
-    <p class="page-sub">Preserve table structure. Local-first processing. 99% accuracy on scanned documents. No upload, no signup.</p>
+<div class="container">
+    <span class="s-tag" data-i18n="pe.tag">PDF → Excel</span>
+    <h1 class="page-h1" data-i18n="pe.h1">Convert PDF to Excel<br>with OCR.</h1>
+    <p class="page-sub" data-i18n="pe.sub">Preserve table structure. Local-first processing. 99% accuracy on scanned documents. No upload, no signup.</p>
     <div class="page-acts">
-        <a href="https://github.com/jiuyue1024/PDflow/releases/download/v1.2/PDFlow_V1.2_Setup.exe" class="btn btn-primary btn-lg">Download Free</a>
-        <a href="index.html" class="btn btn-glass btn-lg">Learn More</a>
+        <a href="https://github.com/jiuyue1024/PDflow/releases/download/v1.2/PDFlow_V1.2_Setup.exe" class="btn btn-primary btn-lg" data-i18n="pe.cta.primary">Download Free</a>
+        <a href="index.html" class="btn btn-glass btn-lg" data-i18n="pe.cta.secondary">Learn More</a>
     </div>
+</div>
 </section>
 
 <section class="page-features">
+<div class="container">
     <div class="pf-grid">
+
         <div class="pf-card">
-            <div class="pf-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4D7CFE" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg></div>
-            <h3>Table Structure Preserved</h3>
-            <p>Columns, rows, and merged cells stay aligned. Edit in Excel right after export.</p>
+            <div class="pf-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4D7CFE" stroke-width="1.6" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg></div>
+            <h3 data-i18n="pe.f1.t">Table Structure Preserved</h3>
+            <p data-i18n="pe.f1.s">Columns, rows, and merged cells stay aligned. Edit in Excel right after export.</p>
         </div>
+
         <div class="pf-card">
-            <div class="pf-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4D7CFE" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
-            <h3>OCR for Scanned PDFs</h3>
-            <p>RapidOCR engine handles scanned invoices, receipts, and contracts with 99% accuracy.</p>
+            <div class="pf-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4D7CFE" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+            <h3 data-i18n="pe.f2.t">OCR for Scanned PDFs</h3>
+            <p data-i18n="pe.f2.s">RapidOCR engine handles scanned invoices, receipts, and contracts with 99% accuracy.</p>
         </div>
+
         <div class="pf-card">
-            <div class="pf-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#4D7CFE" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>
-            <h3>100% Local Processing</h3>
-            <p>Your documents never leave your machine. No cloud upload, no tracking, full privacy.</p>
+            <div class="pf-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4D7CFE" stroke-width="1.6" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg></div>
+            <h3 data-i18n="pe.f3.t">100% Local Processing</h3>
+            <p data-i18n="pe.f3.s">Your documents never leave your machine. No cloud upload, no tracking, full privacy.</p>
         </div>
+
     </div>
+</div>
 </section>
 
 <section class="page-cta">
-    <h2>Start converting PDFs to Excel<br>in seconds.</h2>
-    <p>Free download. Local-first. No signup required.</p>
-    <a href="https://github.com/jiuyue1024/PDflow/releases/download/v1.2/PDFlow_V1.2_Setup.exe" class="btn btn-primary btn-xl">Download Free</a>
-    <div class="page-cta-meta">v1.2.0 · Windows 10/11 · 215 MB</div>
+<div class="container">
+    <h2 data-i18n="pe.cta.h2">Start converting PDFs to Excel<br>in seconds.</h2>
+    <p data-i18n="pe.cta.p">Free download. Local-first. No signup required.</p>
+    <a href="https://github.com/jiuyue1024/PDflow/releases/download/v1.2/PDFlow_V1.2_Setup.exe" class="btn btn-primary btn-xl" data-i18n="pe.cta.primary">Download Free</a>
+    <div class="page-cta-meta" data-i18n="pe.cta.meta">v1.2.0 · Windows 10/11 · 215 MB</div>
+</div>
 </section>
-</main>
 
-<footer class="footer">
-    <div class="footer-in">
+<footer class="footer" role="contentinfo">
+<div class="container">
+    <div class="footer-inner">
         <div class="footer-brand">
             <a href="index.html" class="nav-brand"><img src="screens/logo/pdflow-logo-icon.png" alt="PDflow" width="24" height="24" style="border-radius:6px"><span>PDflow</span></a>
-            <p class="footer-tag">Document Creation Platform.<br>Build. Convert. Export. All local.</p>
+            <p class="footer-tag" data-i18n="f.tag">Document Creation Platform.<br>Build. Convert. Export. All local.</p>
         </div>
         <div class="footer-cols">
-            <div class="footer-col"><h4>Product</h4><a href="pdf-to-excel.html">PDF → Excel</a><a href="pdf-tools.html">PDF Tools</a><a href="template-builder.html">Template Builder</a></div>
-            <div class="footer-col"><h4>Resources</h4><a href="blog.html">Blog</a><a href="index.html#faq">FAQ</a></div>
-            <div class="footer-col"><h4>Company</h4><a href="about.html">About</a><a href="https://github.com/jiuyue1024/PDflow" target="_blank" rel="noopener">GitHub</a></div>
+            <div class="footer-col"><h4 data-i18n="f.h.download">Download</h4><a href="https://github.com/jiuyue1024/PDflow/releases/tag/v1.2" target="_blank" rel="noopener" data-i18n="f.d.windows">Windows</a><a href="https://github.com/jiuyue1024/PDflow/releases" target="_blank" rel="noopener" data-i18n="f.d.notes">Release Notes</a><a href="https://github.com/jiuyue1024/PDflow/releases" target="_blank" rel="noopener" data-i18n="f.d.changelog">Changelog</a><a href="https://github.com/jiuyue1024/PDflow/releases/tag/v1.2" target="_blank" rel="noopener" data-i18n="f.d.sha">SHA256 Checksums</a></div>
+            <div class="footer-col"><h4 data-i18n="f.h.product">Product</h4><a href="pdf-to-excel.html" data-i18n="f.p.excel">PDF → Excel</a><a href="pdf-tools.html" data-i18n="f.p.tools">PDF Tools</a><a href="template-builder.html" data-i18n="f.p.template">Template Builder</a><a href="index.html#compare" data-i18n="f.p.compare">Compare</a></div>
+            <div class="footer-col"><h4 data-i18n="f.h.resources">Resources</h4><a href="blog.html" data-i18n="f.r.blog">Blog</a><a href="index.html#faq" data-i18n="f.r.faq">FAQ</a><a href="about.html" data-i18n="f.r.docs">Documentation</a><a href="about.html" data-i18n="f.r.roadmap">Roadmap</a></div>
+            <div class="footer-col"><h4 data-i18n="f.h.company">Company</h4><a href="about.html" data-i18n="f.c.about">About</a><a href="#" data-i18n="f.c.privacy">Privacy Policy</a><a href="#" data-i18n="f.c.terms">Terms of Service</a><a href="mailto:support@yinliupdflow.com" data-i18n="f.c.support">Support</a><a href="https://github.com/jiuyue1024/PDflow" target="_blank" rel="noopener" data-i18n="f.c.github">GitHub</a></div>
         </div>
     </div>
     <div class="footer-bot">
-        <span>&copy; 2026 YinliuPDflow.</span>
-        <span class="footer-stack">Built with PySide6 · RapidOCR · PyMuPDF</span>
+        <span data-i18n="f.bot.left">&copy; 2026 印流PDflow. <a href="#">Privacy</a> · <a href="#">Terms</a> · <a href="mailto:support@yinliupdflow.com">Contact</a></span>
+        <span class="footer-stack" data-i18n="f.bot.right">Built with PySide6 · RapidOCR · PyMuPDF</span>
     </div>
+</div>
 </footer>
 
-<style>
-/* Subpage-specific styles (extends global.css) */
-.page-hero{padding:120px 24px 60px;max-width:900px;margin:0 auto;text-align:center}
-.s-tag{display:inline-block;padding:6px 14px;border-radius:100px;background:rgba(77,124,254,.1);border:1px solid rgba(77,124,254,.2);color:#4D7CFE;font-size:13px;font-weight:500;margin-bottom:20px}
-.page-h1{font-size:56px;line-height:1.1;font-weight:700;letter-spacing:-0.02em;margin-bottom:20px;color:#EAECEF}
-.page-sub{font-size:18px;line-height:1.6;color:#A1A1AA;max-width:600px;margin:0 auto 36px}
-.page-acts{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-.page-features{padding:80px 24px;max-width:1100px;margin:0 auto}
-.pf-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.pf-card{background:#1A1A22;border:1px solid #2B3139;border-radius:12px;padding:32px 24px;transition:all .2s}
-.pf-card:hover{border-color:#4D7CFE;transform:translateY(-2px)}
-.pf-icon{width:48px;height:48px;border-radius:10px;background:rgba(77,124,254,.1);display:flex;align-items:center;justify-content:center;margin-bottom:16px}
-.pf-card h3{font-size:18px;font-weight:600;margin-bottom:8px;color:#EAECEF}
-.pf-card p{font-size:14px;line-height:1.6;color:#A1A1AA}
-.page-cta{padding:80px 24px;text-align:center;border-top:1px solid #2B3139;margin-top:60px}
-.page-cta h2{font-size:36px;line-height:1.2;font-weight:700;margin-bottom:12px;color:#EAECEF}
-.page-cta p{font-size:16px;color:#A1A1AA;margin-bottom:28px}
-.page-cta-meta{margin-top:16px;font-size:13px;color:#71717A}
-.nav-link{padding:8px 14px;border-radius:6px;background:rgba(255,255,255,.04);color:#EAECEF;text-decoration:none;font-size:14px;transition:all .2s}
-.nav-link:hover{background:rgba(255,255,255,.08)}
-@media(max-width:768px){.page-h1{font-size:36px}.pf-grid{grid-template-columns:1fr}}
-</style>
+<script src="js/i18n.js" defer></script>
+<script src="js/interaction.js?v=20260627" defer></script>
 </body>
 </html>
