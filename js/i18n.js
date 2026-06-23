@@ -132,7 +132,29 @@ en:{
 'f.h.company':'Company',
 'f.c.about':'About','f.c.privacy':'Privacy Policy','f.c.terms':'Terms of Service','f.c.support':'Support','f.c.github':'GitHub',
 'f.bot.left':'&copy; 2026 YinliuPDflow. <a href="#">Privacy</a> · <a href="#">Terms</a> · <a href="mailto:support@yinliupdflow.com">Contact</a>',
-'f.bot.right':'Built with PySide6 · RapidOCR · PyMuPDF · Last updated Jun 2026'
+'f.bot.right':'Built with PySide6 · RapidOCR · PyMuPDF · Last updated Jun 2026',
+
+/* Blog index */
+'blog.tag':'Blog',
+'blog.h1':'PDF tips, guides<br>and product news',
+'blog.sub':'Learn how to get the most out of PDflow — from PDF conversion to template design and document automation.',
+'blog.read':'Read Article →',
+'blog.cta':'Want to see PDflow in action?',
+'blog.cta.btn':'Download Free',
+'blog.tag.product':'Product','blog.tag.conv':'Conversion','blog.tag.priv':'Privacy','blog.tag.tpl':'Templates','blog.tag.tb':'Toolbox','blog.tag.ocr':'OCR','blog.tag.wf':'Workflow','blog.tag.cmp':'Comparison',
+'blog.v12.title':'PDflow v1.2: What\'s New','blog.v12.meta':'Jun 23, 2026 · 5 min read','blog.v12.desc':'Brand-new template library, 50% faster PDF export, refreshed UI with a redesigned homepage, and a polished OCR engine. Everything stays local — no cloud, no signup, still 100% free.',
+'blog.bp.title':'Best PDF to Excel Converter in 2026','blog.bp.meta':'Jun 12, 2026 · 6 min read','blog.bp.desc':'Comparing the top PDF-to-Excel tools. Why local OCR processing delivers better accuracy than cloud-based alternatives.',
+'blog.ocr.title':'How to Convert PDF to Excel with OCR','blog.ocr.meta':'Jun 8, 2026 · 5 min read','blog.ocr.desc':'Step-by-step guide to converting scanned PDFs into editable Excel spreadsheets with OCR.',
+'blog.priv.title':'Why Local PDF Tools Matter for Privacy','blog.priv.meta':'Jun 5, 2026 · 4 min read','blog.priv.desc':'Most online PDF tools upload your documents to third-party servers. Learn why local-first is the only way to guarantee privacy.',
+'blog.free.title':'Document Automation for Freelancers','blog.free.meta':'Jun 1, 2026 · 7 min read','blog.free.desc':'How freelancers can save hours each week with automated invoice templates and professional PDF export.',
+'blog.inv.title':'How to Design Professional Invoice Templates','blog.inv.meta':'May 28, 2026 · 6 min read','blog.inv.desc':'Design tips for creating invoices that impress clients. CJK typography, table layout, brand formatting.',
+'blog.tb.title':'Complete Guide to PDF Tools: Merge, Split, Compress','blog.tb.meta':'May 24, 2026 · 8 min read','blog.tb.desc':'Everything about managing PDFs: merging, splitting, compressing, watermarking.',
+'blog.rt.title':'RapidOCR vs Tesseract: Which OCR Engine Is Better?','blog.rt.meta':'May 20, 2026 · 5 min read','blog.rt.desc':'A comparison of OCR engines. Speed, accuracy, CJK support, and why RapidOCR wins for modern workflows.',
+'blog.wf.title':'How to Build a Local Document Workflow','blog.wf.meta':'May 16, 2026 · 6 min read','blog.wf.desc':'From template creation to PDF export — design a workflow that keeps your data local.',
+'blog.p2i.title':'PDF to Image: When and How to Convert','blog.p2i.meta':'May 12, 2026 · 4 min read','blog.p2i.desc':'Use cases for converting PDF pages to images. High-res export for presentations and print-ready assets.',
+'blog.v11.title':'PDflow v1.1: What\'s New (Archive)','blog.v11.meta':'May 8, 2026 · 3 min read','blog.v11.desc':'Release notes for PDflow v1.1. Improved OCR, new templates, faster export. Superseded by v1.2.',
+'blog.why.title':'Why We Built PDflow: A Local-First Document Platform','blog.why.meta':'May 2, 2026 · 5 min read','blog.why.desc':'The story behind PDflow. Why local processing and privacy-first design matter more than ever.',
+'blog.vsp.title':'PDflow vs PDFgear: Which Tool Fits Your Workflow?','blog.vsp.meta':'Apr 28, 2026 · 7 min read','blog.vsp.desc':'Detailed comparison. Features, privacy, templates, OCR quality, and which tool is right for you.'
 },
 zh:{
 /* Meta */
@@ -258,7 +280,29 @@ zh:{
 'f.h.company':'公司',
 'f.c.about':'关于','f.c.privacy':'隐私政策','f.c.terms':'服务条款','f.c.support':'技术支持','f.c.github':'GitHub',
 'f.bot.left':'&copy; 2026 印流PDflow. <a href="#">隐私</a> · <a href="#">条款</a> · <a href="mailto:support@yinliupdflow.com">联系</a>',
-'f.bot.right':'基于 PySide6 · RapidOCR · PyMuPDF · 最近更新 2026 年 6 月'
+'f.bot.right':'基于 PySide6 · RapidOCR · PyMuPDF · 最近更新 2026 年 6 月',
+
+/* Blog index */
+'blog.tag':'博客',
+'blog.h1':'PDF 技巧、指南<br>与产品资讯',
+'blog.sub':'学习如何用好 PDflow——从 PDF 转换到模板设计，再到文档自动化。',
+'blog.read':'阅读全文 →',
+'blog.cta':'想看 PDflow 实际效果？',
+'blog.cta.btn':'免费下载',
+'blog.tag.product':'产品','blog.tag.conv':'转换','blog.tag.priv':'隐私','blog.tag.tpl':'模板','blog.tag.tb':'工具箱','blog.tag.ocr':'OCR','blog.tag.wf':'工作流','blog.tag.cmp':'对比',
+'blog.v12.title':'PDflow v1.2: 版本更新说明','blog.v12.meta':'2026 年 6 月 23 日 · 阅读约 5 分钟','blog.v12.desc':'全新模板库，PDF 导出速度提升 50%，重新设计的首页 UI，更完善的 OCR 引擎。一切本地处理——无云端、无注册，依然 100% 免费。',
+'blog.bp.title':'2026 年最佳 PDF 转 Excel 工具','blog.bp.meta':'2026 年 6 月 12 日 · 阅读约 6 分钟','blog.bp.desc':'对比主流 PDF 转 Excel 工具，分析为什么本地 OCR 处理比云端方案更准确，以及 PDflow 如何处理扫描表格、保留图片、对齐列宽。',
+'blog.ocr.title':'如何使用 OCR 将 PDF 转为 Excel','blog.ocr.meta':'2026 年 6 月 8 日 · 阅读约 5 分钟','blog.ocr.desc':'将扫描 PDF 转为可编辑 Excel 的完整步骤指南。涵盖 OCR 引擎选型、表格结构识别、嵌入图片保留技巧。',
+'blog.priv.title':'为什么本地 PDF 工具关乎隐私','blog.priv.meta':'2026 年 6 月 5 日 · 阅读约 4 分钟','blog.priv.desc':'大多数在线 PDF 工具会把你的文档上传到第三方服务器。本地优先的文档处理才是数据隐私与安全的唯一保障。',
+'blog.free.title':'自由职业者的文档自动化','blog.free.meta':'2026 年 6 月 1 日 · 阅读约 7 分钟','blog.free.desc':'如何用自动发票模板、合同生成、专业 PDF 导出每周省下数小时——完全无需云端订阅。',
+'blog.inv.title':'如何设计专业发票模板','blog.inv.meta':'2026 年 5 月 28 日 · 阅读约 6 分钟','blog.inv.desc':'设计让客户眼前一亮的发票。涵盖 CJK 字体排版、表格布局最佳实践、品牌一致的格式。',
+'blog.tb.title':'PDF 工具完整指南：合并、拆分、压缩','blog.tb.meta':'2026 年 5 月 24 日 · 阅读约 8 分钟','blog.tb.desc':'PDF 文件管理的方方面面：合并多文档、按页拆分、邮件压缩、添加水印。',
+'blog.rt.title':'RapidOCR vs Tesseract：哪个 OCR 引擎更强？','blog.rt.meta':'2026 年 5 月 20 日 · 阅读约 5 分钟','blog.rt.desc':'OCR 引擎全方位对比：速度、准确率、CJK 语言支持，以及为什么 RapidOCR 是现代文档工作流的首选。',
+'blog.wf.title':'如何搭建本地化文档工作流','blog.wf.meta':'2026 年 5 月 16 日 · 阅读约 6 分钟','blog.wf.desc':'从模板创建到 PDF 导出——设计一套数据本地化、流程高效、输出专业的工作流。',
+'blog.p2i.title':'PDF 转图片：何时以及如何转换','blog.p2i.meta':'2026 年 5 月 12 日 · 阅读约 4 分钟','blog.p2i.desc':'PDF 转图片的应用场景。高分辨率导出用于演示、社交媒体预览、印刷级素材。',
+'blog.v11.title':'PDflow v1.1: 版本更新说明（归档）','blog.v11.meta':'2026 年 5 月 8 日 · 阅读约 3 分钟','blog.v11.desc':'PDflow v1.1 发布说明。OCR 准确率提升、新增模板、导出引擎加速。已被 v1.2 替代。',
+'blog.why.title':'我们为什么打造 PDflow：本地优先的文档平台','blog.why.meta':'2026 年 5 月 2 日 · 阅读约 5 分钟','blog.why.desc':'PDflow 背后的故事。为什么本地处理、隐私优先设计、专业模板在现代文档工作流中愈发重要。',
+'blog.vsp.title':'PDflow vs PDFgear：哪款适合你的工作流？','blog.vsp.meta':'2026 年 4 月 28 日 · 阅读约 7 分钟','blog.vsp.desc':'PDflow 与 PDFgear 详细对比。功能、隐私、模板支持、OCR 质量，以及哪款工具更适合设计师与团队。'
 }
 };
 
