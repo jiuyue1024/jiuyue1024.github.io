@@ -61,4 +61,78 @@ console.log('%c印流PDflow%c\nDocument Creation Platform','color:#8B5CF6;font-s
 /* ---- Image lazy (fallback) ---- */
 if(!('loading' in HTMLImageElement.prototype)&&'IntersectionObserver' in window){document.querySelectorAll('img[loading="lazy"]').forEach(function(img){new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var i=e.target;i.src=i.src;}})},{threshold:.1}).observe(img);});}
 
+/* ---- Analytics: Custom Event Tracking (Umami) ---- */
+(function(){
+var u=window.umami;
+
+/* 1. 下载点击追踪 */
+document.querySelectorAll('a[href*="github.com/jiuyue1024/PDflow/releases/download"]').forEach(function(a){
+a.addEventListener('click',function(){
+var loc='unknown';
+if(a.id==='heroDL')loc='hero';
+else if(a.id==='dlBtn')loc='download-section';
+else if(a.id==='navDownload')loc='nav';
+else if(a.closest('.float-cta'))loc='floating-cta';
+else loc='other';
+if(u)u.track('Download Click',{location:loc});
+});
+});
+
+/* 2. GitHub 点击追踪 */
+document.querySelectorAll('a[href*="github.com/jiuyue1024/PDflow"]').forEach(function(a){
+if(a.href&&a.href.indexOf('/releases/download')!==-1)return;
+a.addEventListener('click',function(){
+var loc='unknown';
+if(a.closest('.dl-acts'))loc='download-section';
+else if(a.closest('.footer-col'))loc='footer';
+else loc='other';
+if(u)u.track('GitHub Click',{location:loc});
+});
+});
+
+/* 3. 视频播放追踪 */
+var vid=document.getElementById('demoVideo');
+if(vid){
+var vidTracked={};
+vid.addEventListener('play',function(){
+var src=vid.querySelector('source');
+var name=src?src.src.split('/').pop().replace('.mp4',''):'unknown';
+if(!vidTracked[name]){
+vidTracked[name]=true;
+if(u)u.track('Video Play',{video:name});
+}
+});
+}
+
+/* 4. 停留时间追踪（10s / 30s / 60s / 180s / 300s） */
+var dwellMilestones=[10,30,60,180,300];
+var dwellFired=new Set();
+var dwellStart=Date.now();
+function checkDwell(){
+var sec=Math.round((Date.now()-dwellStart)/1000);
+dwellMilestones.forEach(function(m){
+if(sec>=m&&!dwellFired.has(m)){
+dwellFired.add(m);
+if(u)u.track('Dwell Time',{seconds:m});
+}
+});
+}
+setInterval(checkDwell,5000);
+window.addEventListener('beforeunload',checkDwell);
+
+/* 5. FAQ 展开追踪 */
+document.querySelectorAll('.faq-item').forEach(function(item){
+var btn=item.querySelector('.faq-q');
+if(!btn)return;
+btn.addEventListener('click',function(){
+if(item.classList.contains('open')){
+var qText=btn.querySelector('span');
+var q=qText?qText.textContent.trim():'unknown';
+if(u)u.track('FAQ Expand',{question:q});
+}
+});
+});
+
+})();
+
 })();
