@@ -12,8 +12,8 @@
 <script defer src="https://cloud.umami.is/script.js" data-website-id="c31fd378-25c3-4c7c-9979-5f675fdec287"></script>
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.yinliupdflow.com/">
-<meta property="og:title" content="PDflow — Visual Document Builder &amp; PDF Conversion">
-<meta property="og:description" content="Create documents visually. Convert PDFs with OCR. Export instantly. Local-first.">
+<meta property="og:title" data-i18n="og.title" content="PDflow — Visual Document Builder &amp; PDF Conversion">
+<meta property="og:description" data-i18n="og.desc" content="Create documents visually. Convert PDFs with OCR. Export instantly. Local-first.">
 <meta property="og:image" content="https://www.yinliupdflow.com/og-cover.png">
 <meta property="og:locale" content="zh_CN">
 <meta name="twitter:card" content="summary_large_image">
@@ -39,13 +39,16 @@
 <div class="nav-inner">
     <a href="/" class="nav-brand"><img src="screens/logo/pdflow-logo-icon.png" alt="PDflow" width="28" height="28" style="border-radius:6px"><span>PDflow</span></a>
     <div class="nav-links" id="navLinks" role="menubar">
-        <a href="#product" class="nav-link" role="menuitem">Product</a>
-        <a href="#compare" class="nav-link" role="menuitem">Compare</a>
-        <a href="#cases" class="nav-link" role="menuitem">Cases</a>
-        <a href="#faq" class="nav-link" role="menuitem">FAQ</a>
-        <a href="blog.html" class="nav-link" role="menuitem">Blog</a>
+        <a href="#product" class="nav-link" data-i18n="nav.product" role="menuitem">Product</a>
+        <a href="#compare" class="nav-link" data-i18n="nav.compare" role="menuitem">Compare</a>
+        <a href="#cases" class="nav-link" data-i18n="nav.cases" role="menuitem">Cases</a>
+        <a href="#faq" class="nav-link" data-i18n="nav.faq" role="menuitem">FAQ</a>
+        <a href="blog.html" class="nav-link" data-i18n="nav.blog" role="menuitem">Blog</a>
     </div>
-    <div class="nav-actions"><a href="https://github.com/jiuyue1024/PDflow/releases/download/v1.2/PDFlow_V1.2_Setup.exe" class="btn btn-primary btn-sm" id="navDownload">Download Free</a></div>
+    <div class="nav-actions">
+        <button class="lang-toggle" id="langToggle" data-lang="en" aria-label="Toggle language"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20"/></svg><span data-i18n="lang.toggle">中</span></button>
+        <a href="https://github.com/jiuyue1024/PDflow/releases/download/v1.2/PDFlow_V1.2_Setup.exe" class="btn btn-primary btn-sm" id="navDownload" data-i18n="nav.download">Download Free</a>
+    </div>
     <button class="nav-hamburger" id="navHam" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
 </div>
 </nav>
@@ -55,14 +58,14 @@
 <div class="hero-grid"></div>
 <div class="container hero-in">
     <div class="hero-l">
-        <div class="hero-badge"><span class="badge-dot"></span>v1.1 Now Available</div>
-        <h1 class="hero-h">Create Documents<br>Like Designing.</h1>
-        <p class="hero-sub">Visual document builder with PDF conversion, OCR, and professional export. No cloud. No signup.</p>
+        <div class="hero-badge"><span class="badge-dot"></span><span data-i18n="hero.badge">v1.1 Now Available</span></div>
+        <h1 class="hero-h" data-i18n="hero.h1">Create Documents<br>Like Designing.</h1>
+        <p class="hero-sub" data-i18n="hero.sub">Visual document builder with PDF conversion, OCR, and professional export. No cloud. No signup.</p>
         <div class="hero-acts">
-            <a href="https://github.com/jiuyue1024/PDflow/releases/download/v1.2/PDFlow_V1.2_Setup.exe" class="btn btn-primary btn-lg hero-dl" id="heroDL">Download Free</a>
-            <a href="#product" class="btn btn-glass btn-lg">See Product</a>
+            <a href="https://github.com/jiuyue1024/PDflow/releases/download/v1.2/PDFlow_V1.2_Setup.exe" class="btn btn-primary btn-lg hero-dl" id="heroDL" data-i18n="hero.cta.primary">Download Free</a>
+            <a href="#product" class="btn btn-glass btn-lg" data-i18n="hero.cta.secondary">See Product</a>
         </div>
-        <div class="hero-trust">★★★★★ <span>Free forever · 10,000+ documents generated</span></div>
+        <div class="hero-trust" data-i18n="hero.trust">★★★★★ <span>Free forever · 10,000+ documents generated</span></div>
     </div>
     <div class="hero-r" id="heroR">
         <div class="hero-stage">
@@ -70,9 +73,9 @@
                 <img src="screens/hero-main.png" alt="PDflow main window" width="800" height="500" loading="eager" onerror="this.parentElement.classList.add('fallback')">
                 <div class="hero-shot-fallback"><div class="mock-tb"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="mock-title">印流PDflow</span></div><div class="mock-body"><div class="mock-side"></div><div class="mock-main"><div class="mock-hdr"></div><div class="mock-cards"><div></div><div></div><div></div><div></div></div></div></div></div>
             </div>
-            <div class="hero-floating f1"><div class="flt-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A1A1AA" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6z"/><path d="M14 2v6h6"/></svg><span>PDF → Excel</span></div></div>
-            <div class="hero-floating f2"><div class="flt-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A1A1AA" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><circle cx="12" cy="8" r=".5" fill="#A1A1AA"/></svg><span>OCR Ready</span></div></div>
-            <div class="hero-floating f3"><div class="flt-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A1A1AA" stroke-width="1.5"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 19h14"/></svg><span>Export PDF</span></div></div>
+            <div class="hero-floating f1"><div class="flt-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A1A1AA" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6z"/><path d="M14 2v6h6"/></svg><span data-i18n="hero.float1">PDF → Excel</span></div></div>
+            <div class="hero-floating f2"><div class="flt-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A1A1AA" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><circle cx="12" cy="8" r=".5" fill="#A1A1AA"/></svg><span data-i18n="hero.float2">OCR Ready</span></div></div>
+            <div class="hero-floating f3"><div class="flt-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A1A1AA" stroke-width="1.5"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 19h14"/></svg><span data-i18n="hero.float3">Export PDF</span></div></div>
         </div>
     </div>
 </div>
@@ -81,13 +84,13 @@
 <!-- ===== S2: PRODUCT DEMO ===== -->
 <section class="demo" id="product" aria-label="Product demo">
 <div class="container">
-    <div class="s-head"><span class="s-tag">Product</span><h2 class="s-h2">See PDflow in Action</h2><p class="s-desc">From import to export. Real-time preview, professional output.</p></div>
+    <div class="s-head"><span class="s-tag" data-i18n="s2.tag">Product</span><h2 class="s-h2" data-i18n="s2.h2">See PDflow in Action</h2><p class="s-desc" data-i18n="s2.desc">From import to export. Real-time preview, professional output.</p></div>
     <div class="demo-layout">
         <div class="demo-video">
             <div class="demo-player">
                 <div class="demo-tabs">
-                    <button class="demo-tab active" data-src="videos/invoice-template.mp4">Invoice Template</button>
-                    <button class="demo-tab" data-src="videos/pdf-to-excel.mp4">PDF → Excel</button>
+                    <button class="demo-tab active" data-src="videos/invoice-template.mp4" data-i18n="s2.tab1">Invoice Template</button>
+                    <button class="demo-tab" data-src="videos/pdf-to-excel.mp4" data-i18n="s2.tab2">PDF → Excel</button>
                 </div>
                 <video class="demo-vid" id="demoVideo" autoplay muted loop playsinline controls>
                     <source src="videos/invoice-template.mp4" type="video/mp4">
@@ -95,10 +98,10 @@
             </div>
         </div>
         <div class="demo-features">
-            <div class="demo-f-card"><span class="demo-f-num">6+</span><div><strong>Templates</strong><small>Invoices, contracts, reports</small></div></div>
-            <div class="demo-f-card"><span class="demo-f-num">10+</span><div><strong>PDF Tools</strong><small>Merge, split, compress, OCR</small></div></div>
-            <div class="demo-f-card"><span class="demo-f-num">100%</span><div><strong>Local</strong><small>No cloud, no upload</small></div></div>
-            <div class="demo-f-card"><span class="demo-f-num">&lt;3s</span><div><strong>Export</strong><small>High-quality PDF</small></div></div>
+            <div class="demo-f-card"><span class="demo-f-num" data-i18n="s2.f1.num">6+</span><div><strong data-i18n="s2.f1.t">Templates</strong><small data-i18n="s2.f1.s">Invoices, contracts, reports</small></div></div>
+            <div class="demo-f-card"><span class="demo-f-num" data-i18n="s2.f2.num">10+</span><div><strong data-i18n="s2.f2.t">PDF Tools</strong><small data-i18n="s2.f2.s">Merge, split, compress, OCR</small></div></div>
+            <div class="demo-f-card"><span class="demo-f-num" data-i18n="s2.f3.num">100%</span><div><strong data-i18n="s2.f3.t">Local</strong><small data-i18n="s2.f3.s">No cloud, no upload</small></div></div>
+            <div class="demo-f-card"><span class="demo-f-num" data-i18n="s2.f4.num">&lt;3s</span><div><strong data-i18n="s2.f4.t">Export</strong><small data-i18n="s2.f4.s">High-quality PDF</small></div></div>
         </div>
     </div>
 </div>
@@ -107,11 +110,11 @@
 <!-- ===== S3: REAL SCREENSHOTS GALLERY ===== -->
 <section class="gallery" aria-label="Product screenshots">
 <div class="container">
-    <div class="s-head"><span class="s-tag">Gallery</span><h2 class="s-h2">Built for real work</h2><p class="s-desc">Professional template layout, PDF conversion, and full toolbox — all in one desktop app.</p></div>
+    <div class="s-head"><span class="s-tag" data-i18n="s3.tag">Gallery</span><h2 class="s-h2" data-i18n="s3.h2">Built for real work</h2><p class="s-desc" data-i18n="s3.desc">Professional template layout, PDF conversion, and full toolbox — all in one desktop app.</p></div>
     <div class="gallery-grid">
-        <div class="gallery-card" tabindex="0"><div class="gallery-frame"><img src="screens/template-editor.png" alt="Template Editor" loading="lazy" onerror="this.style.display='none'"></div><div class="gallery-info"><strong>Template Editor</strong><span>Visual layout with live preview</span></div></div>
-        <div class="gallery-card" tabindex="0"><div class="gallery-frame"><img src="screens/pdf-convert.png" alt="PDF Conversion" loading="lazy" onerror="this.style.display='none'"></div><div class="gallery-info"><strong>PDF Conversion</strong><span>PDF → Excel with OCR</span></div></div>
-        <div class="gallery-card" tabindex="0"><div class="gallery-frame"><img src="screens/toolbox-main.png" alt="PDF Toolbox" loading="lazy" onerror="this.style.display='none'"></div><div class="gallery-info"><strong>PDF Toolbox</strong><span>Merge, split, compress, watermark</span></div></div>
+        <div class="gallery-card" tabindex="0"><div class="gallery-frame"><img src="screens/template-editor.png" alt="Template Editor" loading="lazy" onerror="this.style.display='none'"></div><div class="gallery-info"><strong data-i18n="s3.c1.t">Template Editor</strong><span data-i18n="s3.c1.s">Visual layout with live preview</span></div></div>
+        <div class="gallery-card" tabindex="0"><div class="gallery-frame"><img src="screens/pdf-convert.png" alt="PDF Conversion" loading="lazy" onerror="this.style.display='none'"></div><div class="gallery-info"><strong data-i18n="s3.c2.t">PDF Conversion</strong><span data-i18n="s3.c2.s">PDF → Excel with OCR</span></div></div>
+        <div class="gallery-card" tabindex="0"><div class="gallery-frame"><img src="screens/toolbox-main.png" alt="PDF Toolbox" loading="lazy" onerror="this.style.display='none'"></div><div class="gallery-info"><strong data-i18n="s3.c3.t">PDF Toolbox</strong><span data-i18n="s3.c3.s">Merge, split, compress, watermark</span></div></div>
     </div>
 </div>
 </section>
@@ -119,49 +122,49 @@
 <!-- ===== S4: BENCHMARK / COMPARE ===== -->
 <section class="compare" id="compare" aria-label="PDflow vs others">
 <div class="container">
-    <div class="s-head"><span class="s-tag">Benchmark</span><h2 class="s-h2">Built differently</h2><p class="s-desc">See how PDflow compares to online PDF tools.</p></div>
+    <div class="s-head"><span class="s-tag" data-i18n="s4.tag">Benchmark</span><h2 class="s-h2" data-i18n="s4.h2">Built differently</h2><p class="s-desc" data-i18n="s4.desc">See how PDflow compares to online PDF tools.</p></div>
     <div class="compare-table-wrap">
         <table class="compare-table">
-            <thead><tr><th>Feature</th><th class="highlight">PDflow</th><th>Online PDF Tools</th></tr></thead>
+            <thead><tr><th data-i18n="s4.th1">Feature</th><th class="highlight" data-i18n="s4.th2">PDflow</th><th data-i18n="s4.th3">Online PDF Tools</th></tr></thead>
             <tbody>
-                <tr><td>100% Local Processing</td><td class="check">✓</td><td class="cross">✗</td></tr>
-                <tr><td>No File Upload</td><td class="check">✓</td><td class="cross">✗</td></tr>
-                <tr><td>OCR Conversion</td><td class="check">✓</td><td class="check-wk">✓*</td></tr>
-                <tr><td>Professional Templates</td><td class="check">✓</td><td class="cross">✗</td></tr>
-                <tr><td>PDF Export Quality</td><td class="check">Vector</td><td class="check-wk">Raster</td></tr>
-                <tr><td>Free (No Subscription)</td><td class="check">✓</td><td class="cross">✗</td></tr>
-                <tr><td>Works Offline</td><td class="check">✓</td><td class="cross">✗</td></tr>
-                <tr><td>Privacy Guaranteed</td><td class="check">✓</td><td class="cross">✗</td></tr>
+                <tr><td data-i18n="s4.r1">100% Local Processing</td><td class="check">✓</td><td class="cross">✗</td></tr>
+                <tr><td data-i18n="s4.r2">No File Upload</td><td class="check">✓</td><td class="cross">✗</td></tr>
+                <tr><td data-i18n="s4.r3">OCR Conversion</td><td class="check">✓</td><td class="check-wk">✓*</td></tr>
+                <tr><td data-i18n="s4.r4">Professional Templates</td><td class="check">✓</td><td class="cross">✗</td></tr>
+                <tr><td data-i18n="s4.r5">PDF Export Quality</td><td class="check" data-i18n="s4.r5.p1">Vector</td><td class="check-wk" data-i18n="s4.r5.p2">Raster</td></tr>
+                <tr><td data-i18n="s4.r6">Free (No Subscription)</td><td class="check">✓</td><td class="cross">✗</td></tr>
+                <tr><td data-i18n="s4.r7">Works Offline</td><td class="check">✓</td><td class="cross">✗</td></tr>
+                <tr><td data-i18n="s4.r8">Privacy Guaranteed</td><td class="check">✓</td><td class="cross">✗</td></tr>
             </tbody>
         </table>
     </div>
-    <p class="compare-note">* Online tools often limit OCR to first 5 pages unless paid.</p>
+    <p class="compare-note" data-i18n="s4.note">* Online tools often limit OCR to first 5 pages unless paid.</p>
 </div>
 </section>
 
 <!-- ===== S5: USE CASES (Real-world) ===== -->
 <section class="cases" id="cases" aria-label="Use cases">
 <div class="container">
-    <div class="s-head"><span class="s-tag">Real Cases</span><h2 class="s-h2">From busy to done</h2><p class="s-desc">Real teams. Real documents. Real time saved.</p></div>
+    <div class="s-head"><span class="s-tag" data-i18n="s5.tag">Real Cases</span><h2 class="s-h2" data-i18n="s5.h2">From busy to done</h2><p class="s-desc" data-i18n="s5.desc">Real teams. Real documents. Real time saved.</p></div>
     <div class="cases-grid">
-        <div class="case-card"><div class="case-badge">Freelancer</div>
-            <div class="case-meta"><div class="case-before"><small>Before</small><span>30 min manual layout</span></div><div class="case-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#52525B" stroke-width="1.5"><path d="M5 12h14m0 0l-4-4m4 4l-4 4"/></svg></div><div class="case-after"><small>After</small><span>5 min — export done</span></div></div>
-            <p>"I generate invoices in minutes. Template system is a lifesaver."</p>
+        <div class="case-card"><div class="case-badge" data-i18n="s5.c1.b">Freelancer</div>
+            <div class="case-meta"><div class="case-before"><small data-i18n="s5.c1.b1">Before</small><span data-i18n="s5.c1.b1t">30 min manual layout</span></div><div class="case-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#52525B" stroke-width="1.5"><path d="M5 12h14m0 0l-4-4m4 4l-4 4"/></svg></div><div class="case-after"><small data-i18n="s5.c1.a1">After</small><span data-i18n="s5.c1.a1t">5 min — export done</span></div></div>
+            <p data-i18n="s5.c1.q">"I generate invoices in minutes. Template system is a lifesaver."</p>
             <div class="case-frame"><img src="screens/export-result.png" alt="Export result" loading="lazy" onerror="this.style.display='none'"></div>
         </div>
-        <div class="case-card"><div class="case-badge">Accounting</div>
-            <div class="case-meta"><div class="case-before"><small>Before</small><span>Manual PDF → Excel typing</span></div><div class="case-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#52525B" stroke-width="1.5"><path d="M5 12h14m0 0l-4-4m4 4l-4 4"/></svg></div><div class="case-after"><small>After</small><span>OCR auto-extracts tables</span></div></div>
-            <p>"99% accuracy on scanned invoices. No retyping needed."</p>
+        <div class="case-card"><div class="case-badge" data-i18n="s5.c2.b">Accounting</div>
+            <div class="case-meta"><div class="case-before"><small data-i18n="s5.c2.b1">Before</small><span data-i18n="s5.c2.b1t">Manual PDF → Excel typing</span></div><div class="case-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#52525B" stroke-width="1.5"><path d="M5 12h14m0 0l-4-4m4 4l-4 4"/></svg></div><div class="case-after"><small data-i18n="s5.c2.a1">After</small><span data-i18n="s5.c2.a1t">OCR auto-extracts tables</span></div></div>
+            <p data-i18n="s5.c2.q">"99% accuracy on scanned invoices. No retyping needed."</p>
             <div class="case-frame"><img src="screens/convert-excel.png" alt="Excel conversion" loading="lazy" onerror="this.style.display='none'"></div>
         </div>
-        <div class="case-card"><div class="case-badge">Operations</div>
-            <div class="case-meta"><div class="case-before"><small>Before</small><span>Multiple tools for each PDF task</span></div><div class="case-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#52525B" stroke-width="1.5"><path d="M5 12h14m0 0l-4-4m4 4l-4 4"/></svg></div><div class="case-after"><small>After</small><span>One app for merge, split, OCR</span></div></div>
-            <p>"Merge, compress, OCR — all local. Our data never leaves."</p>
+        <div class="case-card"><div class="case-badge" data-i18n="s5.c3.b">Operations</div>
+            <div class="case-meta"><div class="case-before"><small data-i18n="s5.c3.b1">Before</small><span data-i18n="s5.c3.b1t">Multiple tools for each PDF task</span></div><div class="case-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#52525B" stroke-width="1.5"><path d="M5 12h14m0 0l-4-4m4 4l-4 4"/></svg></div><div class="case-after"><small data-i18n="s5.c3.a1">After</small><span data-i18n="s5.c3.a1t">One app for merge, split, OCR</span></div></div>
+            <p data-i18n="s5.c3.q">"Merge, compress, OCR — all local. Our data never leaves."</p>
             <div class="case-frame"><img src="screens/merge-split.png" alt="Merge split" loading="lazy" onerror="this.style.display='none'"></div>
         </div>
-        <div class="case-card"><div class="case-badge">Agency</div>
-            <div class="case-meta"><div class="case-before"><small>Before</small><span>Client docs need reformatting</span></div><div class="case-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#52525B" stroke-width="1.5"><path d="M5 12h14m0 0l-4-4m4 4l-4 4"/></svg></div><div class="case-after"><small>After</small><span>Template + brand style = done</span></div></div>
-            <p>"Brand templates with consistent formatting — clients love it."</p>
+        <div class="case-card"><div class="case-badge" data-i18n="s5.c4.b">Agency</div>
+            <div class="case-meta"><div class="case-before"><small data-i18n="s5.c4.b1">Before</small><span data-i18n="s5.c4.b1t">Client docs need reformatting</span></div><div class="case-arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#52525B" stroke-width="1.5"><path d="M5 12h14m0 0l-4-4m4 4l-4 4"/></svg></div><div class="case-after"><small data-i18n="s5.c4.a1">After</small><span data-i18n="s5.c4.a1t">Template + brand style = done</span></div></div>
+            <p data-i18n="s5.c4.q">"Brand templates with consistent formatting — clients love it."</p>
             <div class="case-frame"><img src="screens/template-preview.png" alt="Template preview" loading="lazy" onerror="this.style.display='none'"></div>
         </div>
     </div>
@@ -173,56 +176,56 @@
 <div class="container">
     <div class="faq-in">
         <div class="faq-l">
-            <span class="s-tag">FAQ</span>
-            <h2 class="s-h2">Frequently asked<br>questions</h2>
+            <span class="s-tag" data-i18n="s6.tag">FAQ</span>
+            <h2 class="s-h2" data-i18n="s6.h2">Frequently asked<br>questions</h2>
             <div class="faq-search">
                 <svg class="faq-search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#52525B" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
-                <input type="search" id="faqSearch" placeholder="Search questions..." aria-label="Search frequently asked questions">
+                <input type="search" id="faqSearch" data-i18n-attr="placeholder" data-i18n="s6.search" placeholder="Search questions..." aria-label="Search frequently asked questions">
             </div>
         </div>
         <div class="faq-r">
             <div class="faq-list" id="faqList">
                 <div class="faq-item open">
                     <button class="faq-q" aria-expanded="true">
-                        <span>Is PDflow really free?</span>
+                        <span data-i18n="s6.q1">Is PDflow really free?</span>
                         <svg class="faq-cv" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 8l5 5 5-5"/></svg>
                     </button>
-                    <div class="faq-a"><p>Yes. All features included. No hidden fees, no premium tiers, no ads. Built for the community.</p></div>
+                    <div class="faq-a"><p data-i18n="s6.a1">Yes. All features included. No hidden fees, no premium tiers, no ads. Built for the community.</p></div>
                 </div>
                 <div class="faq-item">
                     <button class="faq-q" aria-expanded="false">
-                        <span>What platforms are supported?</span>
+                        <span data-i18n="s6.q2">What platforms are supported?</span>
                         <svg class="faq-cv" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 8l5 5 5-5"/></svg>
                     </button>
-                    <div class="faq-a"><p>Windows 10/11 (64-bit). macOS and Linux on roadmap. Built with PySide6 Qt 6.</p></div>
+                    <div class="faq-a"><p data-i18n="s6.a2">Windows 10/11 (64-bit). macOS and Linux on roadmap. Built with PySide6 Qt 6.</p></div>
                 </div>
                 <div class="faq-item">
                     <button class="faq-q" aria-expanded="false">
-                        <span>Is my data processed locally?</span>
+                        <span data-i18n="s6.q3">Is my data processed locally?</span>
                         <svg class="faq-cv" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 8l5 5 5-5"/></svg>
                     </button>
-                    <div class="faq-a"><p>100%. All processing on your machine. No cloud upload, no tracking. Works fully offline.</p></div>
+                    <div class="faq-a"><p data-i18n="s6.a3">100%. All processing on your machine. No cloud upload, no tracking. Works fully offline.</p></div>
                 </div>
                 <div class="faq-item">
                     <button class="faq-q" aria-expanded="false">
-                        <span>How does PDF → Excel conversion work?</span>
+                        <span data-i18n="s6.q4">How does PDF → Excel conversion work?</span>
                         <svg class="faq-cv" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 8l5 5 5-5"/></svg>
                     </button>
-                    <div class="faq-a"><p>PyMuPDF + RapidOCR for scanned documents. Table structure preserved. Columns aligned globally. Images embedded directly into Excel cells.</p></div>
+                    <div class="faq-a"><p data-i18n="s6.a4">PyMuPDF + RapidOCR for scanned documents. Table structure preserved. Columns aligned globally. Images embedded directly into Excel cells.</p></div>
                 </div>
                 <div class="faq-item">
                     <button class="faq-q" aria-expanded="false">
-                        <span>What's the file size and version?</span>
+                        <span data-i18n="s6.q5">What's the file size and version?</span>
                         <svg class="faq-cv" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 8l5 5 5-5"/></svg>
                     </button>
-                    <div class="faq-a"><p>Current version is v1.1.0. About 78 MB installed. Works on Windows 10 and 11. SHA256 checksum available on the download page.</p></div>
+                    <div class="faq-a"><p data-i18n="s6.a5">Current version is v1.1.0. About 78 MB installed. Works on Windows 10 and 11. SHA256 checksum available on the download page.</p></div>
                 </div>
                 <div class="faq-item">
                     <button class="faq-q" aria-expanded="false">
-                        <span>Can I use it commercially?</span>
+                        <span data-i18n="s6.q6">Can I use it commercially?</span>
                         <svg class="faq-cv" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 8l5 5 5-5"/></svg>
                     </button>
-                    <div class="faq-a"><p>Absolutely. Generate invoices, contracts, and reports for your business or clients with no restrictions. Free for commercial use.</p></div>
+                    <div class="faq-a"><p data-i18n="s6.a6">Absolutely. Generate invoices, contracts, and reports for your business or clients with no restrictions. Free for commercial use.</p></div>
                 </div>
             </div>
         </div>
@@ -236,25 +239,25 @@
     <div class="dl-block">
         <div class="dl-glow" aria-hidden="true"></div>
         <div class="dl-content">
-            <h2 class="dl-h">Start Creating Better<br>Documents</h2>
-            <p class="dl-p">Free download. Local-first. No signup required.</p>
+            <h2 class="dl-h" data-i18n="s7.h2">Start Creating Better<br>Documents</h2>
+            <p class="dl-p" data-i18n="s7.p">Free download. Local-first. No signup required.</p>
             <div class="dl-acts">
-                <a href="https://github.com/jiuyue1024/PDflow/releases/download/v1.2/PDFlow_V1.2_Setup.exe" class="btn btn-primary btn-xl magnetic" id="dlBtn"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 19h14"/></svg>Download Free</a>
-                <a href="https://github.com/jiuyue1024/PDflow" target="_blank" rel="noopener" class="btn btn-glass btn-xl magnetic"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="10"/><path d="M6.6 14.6c0-3.4 1.5-5.5 3.4-5.5s3.4 2.1 3.4 5.5"/><circle cx="10" cy="5.5" r="1"/></svg>GitHub Source</a>
-                <a href="https://github.com/jiuyue1024/PDflow/releases" target="_blank" rel="noopener" class="btn btn-outline btn-xl">View Changelog →</a>
+                <a href="https://github.com/jiuyue1024/PDflow/releases/download/v1.2/PDFlow_V1.2_Setup.exe" class="btn btn-primary btn-xl magnetic" id="dlBtn"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 19h14"/></svg><span data-i18n="s7.cta.primary">Download Free</span></a>
+                <a href="https://github.com/jiuyue1024/PDflow" target="_blank" rel="noopener" class="btn btn-glass btn-xl magnetic"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="10"/><path d="M6.6 14.6c0-3.4 1.5-5.5 3.4-5.5s3.4 2.1 3.4 5.5"/><circle cx="10" cy="5.5" r="1"/></svg><span data-i18n="s7.cta.github">GitHub Source</span></a>
+                <a href="https://github.com/jiuyue1024/PDflow/releases" target="_blank" rel="noopener" class="btn btn-outline btn-xl"><span data-i18n="s7.cta.changelog">View Changelog →</span></a>
             </div>
             <div class="dl-info">
-                <span class="dl-info-item"><strong>Version</strong> 1.2.0</span>
+                <span class="dl-info-item"><strong data-i18n="s7.i.version">Version</strong> <span data-i18n="s7.i.version.v">1.2.0</span></span>
                 <span class="dl-info-sep"></span>
-                <span class="dl-info-item"><strong>Updated</strong> Jun 2026</span>
+                <span class="dl-info-item"><strong data-i18n="s7.i.updated">Updated</strong> <span data-i18n="s7.i.updated.v">Jun 2026</span></span>
                 <span class="dl-info-sep"></span>
-                <span class="dl-info-item"><strong>Platform</strong> Windows 10/11</span>
+                <span class="dl-info-item"><strong data-i18n="s7.i.platform">Platform</strong> <span data-i18n="s7.i.platform.v">Windows 10/11</span></span>
                 <span class="dl-info-sep"></span>
-                <span class="dl-info-item"><strong>Size</strong> 215 MB</span>
+                <span class="dl-info-item"><strong data-i18n="s7.i.size">Size</strong> <span data-i18n="s7.i.size.v">215 MB</span></span>
                 <span class="dl-info-sep"></span>
-                <span class="dl-info-item"><strong>SHA256</strong> <span class="dl-hash">465d5522...</span></span>
+                <span class="dl-info-item"><strong data-i18n="s7.i.sha">SHA256</strong> <span class="dl-hash">465d5522...</span></span>
             </div>
-            <div class="dl-users">Downloaded by <strong>1,200+</strong> users · Early Access</div>
+            <div class="dl-users" data-i18n="s7.users">Downloaded by <strong>1,200+</strong> users · Early Access</div>
         </div>
     </div>
 </div>
@@ -266,18 +269,18 @@
     <div class="footer-inner">
         <div class="footer-brand">
             <a href="/" class="nav-brand"><svg width="24" height="24" viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#fff"/><path d="M8 10h6v12H8V10zm10 0h6v6h-6v-6z" fill="#060607" opacity=".9"/><path d="M18 18h6v4h-6v-4z" fill="#060607" opacity=".4"/></svg><span>PDflow</span></a>
-            <p class="footer-tag">Document Creation Platform.<br>Build. Convert. Export. All local.</p>
+            <p class="footer-tag" data-i18n="f.tag">Document Creation Platform.<br>Build. Convert. Export. All local.</p>
         </div>
         <div class="footer-cols">
-            <div class="footer-col"><h4>Download</h4><a href="https://github.com/jiuyue1024/PDflow/releases/tag/v1.2" target="_blank" rel="noopener">Windows</a><a href="https://github.com/jiuyue1024/PDflow/releases" target="_blank" rel="noopener">Release Notes</a><a href="https://github.com/jiuyue1024/PDflow/releases" target="_blank" rel="noopener">Changelog</a><a href="https://github.com/jiuyue1024/PDflow/releases/tag/v1.2" target="_blank" rel="noopener">SHA256 Checksums</a></div>
-            <div class="footer-col"><h4>Product</h4><a href="pdf-to-excel.html">PDF → Excel</a><a href="pdf-tools.html">PDF Tools</a><a href="template-builder.html">Template Builder</a><a href="#product">Demo</a><a href="#compare">Compare</a></div>
-            <div class="footer-col"><h4>Resources</h4><a href="blog.html">Blog</a><a href="#faq">FAQ</a><a href="#">Documentation</a><a href="#">API</a><a href="#">Roadmap</a></div>
-            <div class="footer-col"><h4>Company</h4><a href="#">About</a><a href="#">Privacy Policy</a><a href="#">Terms of Service</a><a href="mailto:support@yinliupdflow.com">Support</a><a href="https://github.com/jiuyue1024/PDflow" target="_blank" rel="noopener">GitHub</a></div>
+            <div class="footer-col"><h4 data-i18n="f.h.download">Download</h4><a href="https://github.com/jiuyue1024/PDflow/releases/tag/v1.2" target="_blank" rel="noopener" data-i18n="f.d.windows">Windows</a><a href="https://github.com/jiuyue1024/PDflow/releases" target="_blank" rel="noopener" data-i18n="f.d.notes">Release Notes</a><a href="https://github.com/jiuyue1024/PDflow/releases" target="_blank" rel="noopener" data-i18n="f.d.changelog">Changelog</a><a href="https://github.com/jiuyue1024/PDflow/releases/tag/v1.2" target="_blank" rel="noopener" data-i18n="f.d.sha">SHA256 Checksums</a></div>
+            <div class="footer-col"><h4 data-i18n="f.h.product">Product</h4><a href="pdf-to-excel.html" data-i18n="f.p.excel">PDF → Excel</a><a href="pdf-tools.html" data-i18n="f.p.tools">PDF Tools</a><a href="template-builder.html" data-i18n="f.p.template">Template Builder</a><a href="#product" data-i18n="f.p.demo">Demo</a><a href="#compare" data-i18n="f.p.compare">Compare</a></div>
+            <div class="footer-col"><h4 data-i18n="f.h.resources">Resources</h4><a href="blog.html" data-i18n="f.r.blog">Blog</a><a href="#faq" data-i18n="f.r.faq">FAQ</a><a href="#" data-i18n="f.r.docs">Documentation</a><a href="#" data-i18n="f.r.api">API</a><a href="#" data-i18n="f.r.roadmap">Roadmap</a></div>
+            <div class="footer-col"><h4 data-i18n="f.h.company">Company</h4><a href="#" data-i18n="f.c.about">About</a><a href="#" data-i18n="f.c.privacy">Privacy Policy</a><a href="#" data-i18n="f.c.terms">Terms of Service</a><a href="mailto:support@yinliupdflow.com" data-i18n="f.c.support">Support</a><a href="https://github.com/jiuyue1024/PDflow" target="_blank" rel="noopener" data-i18n="f.c.github">GitHub</a></div>
         </div>
     </div>
     <div class="footer-bot">
-        <span>&copy; 2026 印流PDflow. <a href="#">Privacy</a> · <a href="#">Terms</a> · <a href="mailto:support@yinliupdflow.com">Contact</a></span>
-        <span class="footer-stack">Built with PySide6 · RapidOCR · PyMuPDF · Last updated Jun 2026</span>
+        <span data-i18n="f.bot.left">&copy; 2026 印流PDflow. <a href="#">Privacy</a> · <a href="#">Terms</a> · <a href="mailto:support@yinliupdflow.com">Contact</a></span>
+        <span class="footer-stack" data-i18n="f.bot.right">Built with PySide6 · RapidOCR · PyMuPDF · Last updated Jun 2026</span>
     </div>
 </div>
 </footer>
@@ -286,6 +289,7 @@
     <a href="https://github.com/jiuyue1024/PDflow/releases/download/v1.2/PDFlow_V1.2_Setup.exe" class="btn btn-primary btn-sm"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12m0 0l-4-4m4 4l4-4M5 19h14"/></svg>Download Free</a>
 </div>
 
+<script src="js/i18n.js" defer></script>
 <script src="js/interaction.js?v=20260627" defer></script>
 </body>
 </html>
