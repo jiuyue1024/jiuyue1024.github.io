@@ -65,6 +65,21 @@ if(!('loading' in HTMLImageElement.prototype)&&'IntersectionObserver' in window)
 (function(){
 var u=window.umami;
 
+/* 0. UTM 来源解析（页面加载时执行，存入 sessionStorage） */
+(function(){
+var params=new URLSearchParams(window.location.search);
+var utm={};
+['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(function(k){
+var v=params.get(k);
+if(v){utm[k.replace('utm_','')]=v;}
+});
+if(Object.keys(utm).length>0){
+try{sessionStorage.setItem('pdflow_utm',JSON.stringify(utm));}catch(e){}
+}
+})();
+var utm={};
+try{var s=sessionStorage.getItem('pdflow_utm');if(s)utm=JSON.parse(s);}catch(e){}
+
 /* 1. 下载点击追踪 */
 document.querySelectorAll('a[href*="github.com/jiuyue1024/PDflow/releases/download"]').forEach(function(a){
 a.addEventListener('click',function(){
@@ -74,7 +89,7 @@ else if(a.id==='dlBtn')loc='download-section';
 else if(a.id==='navDownload')loc='nav';
 else if(a.closest('.float-cta'))loc='floating-cta';
 else loc='other';
-if(u)u.track('Download Click',{location:loc});
+if(u)u.track('Download Click',Object.assign({location:loc},utm));
 });
 });
 
@@ -86,7 +101,7 @@ var loc='unknown';
 if(a.closest('.dl-acts'))loc='download-section';
 else if(a.closest('.footer-col'))loc='footer';
 else loc='other';
-if(u)u.track('GitHub Click',{location:loc});
+if(u)u.track('GitHub Click',Object.assign({location:loc},utm));
 });
 });
 
@@ -99,7 +114,7 @@ var src=vid.querySelector('source');
 var name=src?src.src.split('/').pop().replace('.mp4',''):'unknown';
 if(!vidTracked[name]){
 vidTracked[name]=true;
-if(u)u.track('Video Play',{video:name});
+if(u)u.track('Video Play',Object.assign({video:name},utm));
 }
 });
 }
@@ -113,7 +128,7 @@ var sec=Math.round((Date.now()-dwellStart)/1000);
 dwellMilestones.forEach(function(m){
 if(sec>=m&&!dwellFired.has(m)){
 dwellFired.add(m);
-if(u)u.track('Dwell Time',{seconds:m});
+if(u)u.track('Dwell Time',Object.assign({seconds:m},utm));
 }
 });
 }
@@ -128,7 +143,7 @@ btn.addEventListener('click',function(){
 if(item.classList.contains('open')){
 var qText=btn.querySelector('span');
 var q=qText?qText.textContent.trim():'unknown';
-if(u)u.track('FAQ Expand',{question:q});
+if(u)u.track('FAQ Expand',Object.assign({question:q},utm));
 }
 });
 });
