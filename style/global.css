@@ -3,6 +3,12 @@
    Design System · Aurora · Noise · Base
    ============================================ */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+/* ---- Lang toggle (i18n switcher) ---- */
+.lang-toggle{display:inline-flex;align-items:center;gap:6px;height:36px;padding:0 12px;border-radius:8px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);color:#EAECEF;font-size:13px;font-weight:500;cursor:pointer;transition:all .2s ease;font-family:inherit;margin-right:8px}
+.lang-toggle:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.15)}
+.lang-toggle svg{opacity:.7}
+.lang-toggle[data-lang="zh"]{color:#4D7CFE}
 :root{
     --bg:#060607;--bg-card:#0E0E10;--bg-hover:#151518;--bg-surface:#0A0A0C;
     --border:rgba(255,255,255,.08);--border-hover:rgba(255,255,255,.15);
