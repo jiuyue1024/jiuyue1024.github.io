@@ -1,0 +1,9 @@
+{
+  "name": "pdflow-site",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@vercel/blob": "^2.4.0",
+    "nodemailer": "^7.0.6"
+  }
+}
