@@ -161,9 +161,22 @@ h2{max-width:830px;margin-bottom:14px;font-size:clamp(36px,4vw,46px);line-height
 .field label{font-size:12px;font-weight:700;color:#475467}
 .field input,.field textarea{width:100%;border:1px solid var(--line-strong);background:#fff;color:var(--text);border-radius:10px;padding:12px 13px;outline:none}
 .field input:focus,.field textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(79,140,255,.14)}
-.field textarea{min-height:110px;resize:vertical}
-.fileDrop{padding:14px;border:1px dashed #b7c1d0;border-radius:10px;background:#fafbfc;color:var(--muted);font-size:12px}
-.fileDrop input{padding:8px 0 0;border:0;background:transparent;box-shadow:none}
+.field textarea{min-height:92px;resize:vertical}
+.srOnly{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+.fileDrop{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:86px;padding:16px;border:1px dashed #b7c1d0;border-radius:10px;background:#fafbfc;color:var(--muted);font-size:12px;cursor:pointer;transition:border-color .18s ease,background .18s ease}
+.fileDrop:hover,.fileDrop.drag{border-color:var(--blue);background:var(--blue-soft)}
+.fileDropCopy strong{display:block;margin-bottom:3px;color:var(--text);font-size:13px}
+.fileDropCopy span{display:block}
+.choosePdf{display:inline-flex;align-items:center;justify-content:center;min-height:38px;padding:0 13px;border:1px solid #cdd7e6;border-radius:9px;background:#fff;color:var(--blue-strong);font-size:12px;font-weight:800;white-space:nowrap}
+.fileName{grid-column:1/-1;min-height:18px;color:var(--muted);font-size:11px}
+.issueLabel{font-size:12px;font-weight:700;color:#475467}
+.issueChips{display:flex;gap:8px;flex-wrap:wrap}
+.issueChip{min-height:36px;padding:0 11px;border:1px solid var(--line-strong);border-radius:999px;background:#fff;color:#475467;font-size:12px;cursor:pointer}
+.issueChip:hover{border-color:#a9b7cb}
+.issueChip[aria-pressed="true"]{border-color:#9dbfff;background:var(--blue-soft);color:var(--blue-strong)}
+.returnList{display:grid;gap:9px;margin-top:24px;max-width:440px;color:#475467;font-size:13px}
+.returnList span{display:flex;align-items:flex-start;gap:8px}
+.returnList span:before{content:"\2713";color:var(--blue-strong);font-weight:900}
 .consentRow{display:flex;gap:10px;align-items:flex-start;color:var(--muted);font-size:12px}
 .consentRow input{margin-top:3px}
 .formActions{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
@@ -225,6 +238,9 @@ h2{max-width:830px;margin-bottom:14px;font-size:clamp(36px,4vw,46px);line-height
   .sampleForm{grid-template-columns:1fr}
   .field.full,.consentRow,.formActions,.privacyNote,.formStatus{grid-column:auto}
   .formCard{padding:22px}
+  .fileDrop{align-items:flex-start;flex-direction:column}
+  .choosePdf{width:100%}
+  .issueChips{gap:7px}
   .formActions .btn{width:100%}
   .foot{align-items:flex-start;flex-direction:column}
 }
@@ -431,18 +447,40 @@ h2{max-width:830px;margin-bottom:14px;font-size:clamp(36px,4vw,46px);line-height
   <div class="wrap submitGrid reveal">
     <div class="submitCopy">
       <span class="kicker">Submit a PDF</span>
-      <h2>Got a PDF other converters struggle with?</h2>
-      <p class="sectionLead">Send a redacted sample. We'll run it through the current PDflow build and evaluate the result.</p>
+      <h2>Send us the difficult one.</h2>
+      <p class="sectionLead">We'll run a redacted sample through the current PDflow build and return the result with notes on what we could recover — and what we couldn't trust.</p>
+      <div class="returnList" aria-label="What you get back">
+        <span>The Excel output from the current build</span>
+        <span>What PDflow recovered reliably</span>
+        <span>What still needs review or was rejected</span>
+      </div>
     </div>
     <div class="formCard">
       <form class="sampleForm" id="sampleForm">
         <div class="field"><label for="sampleEmail">Your email</label><input id="sampleEmail" name="email" type="email" autocomplete="email" placeholder="you@example.com" required></div>
-        <div class="field"><label for="samplePdf">PDF sample</label><div class="fileDrop"><span>PDF only, up to 20 MB</span><input id="samplePdf" name="pdf" type="file" accept="application/pdf,.pdf" required></div></div>
-        <div class="field full"><label for="sampleProblem">What went wrong?</label><textarea id="sampleProblem" name="description" maxlength="3000" placeholder="Example: rows shift after page 6, repeated headers become data..." required></textarea></div>
+        <div class="field">
+          <label for="samplePdf">PDF sample</label>
+          <label class="fileDrop" id="fileDrop" for="samplePdf">
+            <span class="fileDropCopy"><strong>Drop a PDF here</strong><span>PDF only · up to 20 MB</span></span>
+            <span class="choosePdf">Choose PDF</span>
+          </label>
+          <input class="srOnly" id="samplePdf" name="pdf" type="file" accept="application/pdf,.pdf" required>
+        </div>
+        <div class="fileName" id="fileName" aria-live="polite">No file selected</div>
+        <div class="field full">
+          <span class="issueLabel">What usually goes wrong?</span>
+          <div class="issueChips" id="issueChips">
+            <button class="issueChip" type="button" aria-pressed="false" data-issue="Rows shift">Rows shift</button>
+            <button class="issueChip" type="button" aria-pressed="false" data-issue="Columns split">Columns split</button>
+            <button class="issueChip" type="button" aria-pressed="false" data-issue="Multi-page table breaks">Multi-page table breaks</button>
+            <button class="issueChip" type="button" aria-pressed="false" data-issue="Values land in wrong cells">Wrong cells</button>
+            <button class="issueChip" type="button" aria-pressed="false" data-issue="Other">Other</button>
+          </div>
+        </div>
+        <div class="field full"><label for="sampleProblem">Anything else? <span style="font-weight:400;color:var(--soft)">(optional)</span></label><textarea id="sampleProblem" name="description" maxlength="2600" placeholder="Add a short note if useful."></textarea></div>
         <label class="consentRow"><input id="sampleConsent" type="checkbox" required><span>I have removed or anonymized sensitive information and I am comfortable sharing this file for PDflow product testing.</span></label>
         <div class="formActions">
           <button class="btn primary submitBtn" id="sampleSubmit" type="submit">Submit sample &rarr;</button>
-          <span class="mailLink">Prefer email? <a href="mailto:1950588085@qq.com?subject=PDflow%20v2%20beta">Join the beta</a></span>
           <div class="progressWrap" id="progressWrap"><div class="progressTrack"><div class="progressBar" id="progressBar"></div></div></div>
         </div>
         <div class="formStatus" id="formStatus" role="status" aria-live="polite"></div>
@@ -468,16 +506,46 @@ const submit=document.getElementById('sampleSubmit');
 const status=document.getElementById('formStatus');
 const progressWrap=document.getElementById('progressWrap');
 const progressBar=document.getElementById('progressBar');
+const fileInput=document.getElementById('samplePdf');
+const fileDrop=document.getElementById('fileDrop');
+const fileName=document.getElementById('fileName');
+const issueButtons=[...document.querySelectorAll('.issueChip')];
+
+function updateFileName(){
+  const file=fileInput?.files?.[0];
+  fileName.textContent=file ? file.name : 'No file selected';
+}
+fileInput?.addEventListener('change',updateFileName);
+issueButtons.forEach((button)=>{
+  button.addEventListener('click',()=>{
+    button.setAttribute('aria-pressed',button.getAttribute('aria-pressed')==='true'?'false':'true');
+  });
+});
+['dragenter','dragover'].forEach((eventName)=>fileDrop?.addEventListener(eventName,(e)=>{e.preventDefault();fileDrop.classList.add('drag');}));
+['dragleave','drop'].forEach((eventName)=>fileDrop?.addEventListener(eventName,(e)=>{e.preventDefault();fileDrop.classList.remove('drag');}));
+fileDrop?.addEventListener('drop',(e)=>{
+  const dropped=[...(e.dataTransfer?.files||[])];
+  const pdf=dropped.find((f)=>f.type==='application/pdf'||f.name.toLowerCase().endsWith('.pdf'));
+  if(!pdf||!fileInput)return;
+  const transfer=new DataTransfer();
+  transfer.items.add(pdf);
+  fileInput.files=transfer.files;
+  updateFileName();
+});
 
 form?.addEventListener('submit',async(e)=>{
   e.preventDefault();
   const email=document.getElementById('sampleEmail').value.trim();
-  const description=document.getElementById('sampleProblem').value.trim();
-  const file=document.getElementById('samplePdf').files?.[0];
+  const note=document.getElementById('sampleProblem').value.trim();
+  const issues=issueButtons.filter((b)=>b.getAttribute('aria-pressed')==='true').map((b)=>b.dataset.issue);
+  const description=[issues.length?('Reported issue: '+issues.join(', ')):'',note?('Note: '+note):''].filter(Boolean).join('
+');
+  const file=fileInput.files?.[0];
   const consent=document.getElementById('sampleConsent').checked;
   status.className='formStatus';
-  if(!file||file.type!=='application/pdf'){status.textContent='Please choose a PDF file.';status.classList.add('err');return;}
+  if(!file||!(file.type==='application/pdf'||file.name.toLowerCase().endsWith('.pdf'))){status.textContent='Please choose a PDF file.';status.classList.add('err');return;}
   if(file.size>20*1024*1024){status.textContent='Please keep the PDF under 20 MB.';status.classList.add('err');return;}
+  if(!description){status.textContent='Choose at least one issue or add a short note.';status.classList.add('err');return;}
   submit.disabled=true;progressWrap.style.display='block';progressBar.style.width='0%';status.textContent='Uploading your PDF...';
   try{
     const safeName=file.name.replace(/[^a-zA-Z0-9._-]+/g,'_');
@@ -497,9 +565,11 @@ form?.addEventListener('submit',async(e)=>{
     const data=await r.json().catch(()=>({}));
     if(!r.ok)throw new Error(data.error||'Could not send the sample.');
     progressBar.style.width='100%';
-    status.textContent='Thanks - sample received. It will be used to test the current PDflow build.';
+    status.textContent='Thanks - sample received. We will run it through the current PDflow build.';
     status.classList.add('ok');
     form.reset();
+    issueButtons.forEach((button)=>button.setAttribute('aria-pressed','false'));
+    updateFileName();
   }catch(err){
     status.textContent=err.message||'Something went wrong. Please try again.';
     status.classList.add('err');
@@ -522,4 +592,4 @@ if(!reduce&&'IntersectionObserver' in window){
 }
 </script>
 </body>
-</html>\n
+</html>
