@@ -42,7 +42,7 @@ export default async function handler(request, response) {
         };
       },
       onUploadCompleted: async ({ blob, tokenPayload }) => {
-        console.log('PDflow sample uploaded', blob.pathname, tokenPayload);
+        console.log('PDflow sample uploaded', blob.pathname);
       },
     });
     return response.status(200).json(jsonResponse);
