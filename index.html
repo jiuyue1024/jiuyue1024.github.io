@@ -61,6 +61,28 @@ h2{max-width:830px;margin-bottom:14px;font-size:clamp(36px,4vw,46px);line-height
 .docCard{left:0;top:26px;width:44%}
 .sheetCard{right:0;top:70px;width:52%}
 .docCard img{width:100%;height:320px;object-fit:cover;object-position:top center;filter:saturate(.9)}
+.safeDoc{padding:18px;background:#fff}
+.safeDocHead{display:flex;justify-content:space-between;gap:16px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+.safeDocHead strong{font-size:13px}
+.safeDocHead span{font-size:10px;color:var(--muted)}
+.safeDocMeta{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:16px 0}
+.safeDocMeta div{height:8px;border-radius:99px;background:#edf1f6}
+.safeDocMeta div:nth-child(2){width:74%}
+.safeDocMeta div:nth-child(3){width:62%}
+.safeDocMeta div:nth-child(4){width:86%}
+.safeQuoteTable{border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.safeQuoteRow{display:grid;grid-template-columns:.6fr 1.6fr .55fr .75fr;font-size:9px;border-bottom:1px solid var(--line)}
+.safeQuoteRow:last-child{border-bottom:0}
+.safeQuoteRow span{padding:8px 7px;border-right:1px solid var(--line)}
+.safeQuoteRow span:last-child{border-right:0}
+.safeQuoteRow.head{background:#f8fafc;color:var(--soft);text-transform:uppercase}
+.safeQuoteRow.focus{background:var(--blue-soft);outline:2px solid #9dbfff;outline-offset:-2px}
+.safeDocNote{margin-top:12px;color:var(--soft);font-size:9px}
+.safeValidationVisual{min-height:246px;padding:24px;border:1px dashed #cbd5e1;border-radius:12px;background:#fbfcfe}
+.safeValidationVisual h4{margin:0 0 14px;font-size:14px}
+.safeValidationVisual p{margin:0 0 14px;color:var(--muted);font-size:12px}
+.safeValidationVisual .safeQuoteTable{background:#fff}
+
 .cardTop{height:38px;padding:0 12px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);font-size:10px;color:var(--muted)}
 .dots{display:flex;gap:4px}.dots i{width:6px;height:6px;border-radius:50%;background:#d0d5dd}
 .mockTable{padding:14px}
@@ -125,6 +147,49 @@ h2{max-width:830px;margin-bottom:14px;font-size:clamp(36px,4vw,46px);line-height
 .reviewRow.active{background:var(--blue-soft);outline:2px solid #9dbfff;outline-offset:-2px}
 .reviewNote{margin-top:18px;color:var(--muted);font-size:13px}
 .reviewStatement{margin-top:22px;font-size:22px;line-height:1.35;font-weight:720;letter-spacing:-.02em}
+.liveReview{display:grid;grid-template-columns:1.2fr .8fr;gap:18px;margin-top:38px;padding:18px;border:1px solid var(--line);border-radius:18px;background:#fff;box-shadow:0 16px 42px rgba(17,24,39,.06)}
+.livePdf{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:13px;background:#f7f8fa}
+.livePdf img{width:100%;height:100%;min-height:360px;object-fit:contain;background:#fff}
+.sourceHighlight{position:absolute;border:2px solid var(--blue);background:rgba(79,140,255,.12);border-radius:5px;box-shadow:0 0 0 4px rgba(79,140,255,.08);transition:left .25s ease,top .25s ease,width .25s ease,height .25s ease,box-shadow .25s ease}
+.sourceHighlight.pulse{box-shadow:0 0 0 8px rgba(79,140,255,.10)}
+.livePanel{display:flex;flex-direction:column;min-width:0}
+.livePanelHead{padding:12px 12px 16px;border-bottom:1px solid var(--line)}
+.livePanelHead strong{display:block;font-size:15px}
+.livePanelHead span{display:block;margin-top:4px;color:var(--muted);font-size:11px}
+.sourceCells{display:grid;gap:10px;padding:16px 0}
+.sourceCell{width:100%;padding:14px;border:1px solid var(--line);border-radius:11px;background:#fff;text-align:left;cursor:pointer;transition:border-color .18s ease,background .18s ease,transform .18s ease}
+.sourceCell:hover{transform:translateY(-2px);border-color:#b8cae8}
+.sourceCell.active{border-color:#8eb4ff;background:var(--blue-soft)}
+.sourceCell small{display:block;margin-bottom:5px;color:var(--soft);font-size:10px;text-transform:uppercase;letter-spacing:.08em}
+.sourceCell b{display:block;color:var(--text);font-size:13px;line-height:1.35;overflow:hidden;text-overflow:ellipsis}
+.sourceMeta{margin-top:auto;padding:13px;border-radius:11px;background:#f7f9fc;color:var(--muted);font-size:11px;line-height:1.6}
+.realFlag{display:inline-flex;align-items:center;gap:6px;margin-bottom:6px;color:#16755a;font-weight:800}
+.realFlag:before{content:"";width:7px;height:7px;border-radius:50%;background:#22a06b}
+.processLab{margin-top:34px;border:1px solid var(--line);border-radius:16px;background:#fff;overflow:hidden}
+.processRail{display:grid;grid-template-columns:repeat(5,1fr);border-bottom:1px solid var(--line)}
+.processStepBtn{position:relative;padding:16px 14px;border:0;border-right:1px solid var(--line);background:#fff;color:var(--muted);text-align:left;cursor:pointer}
+.processStepBtn:last-child{border-right:0}
+.processStepBtn span{display:block;margin-bottom:6px;color:var(--soft);font:800 10px/1 ui-monospace,SFMono-Regular,Consolas,monospace}
+.processStepBtn strong{display:block;color:inherit;font-size:12px}
+.processStepBtn.active{background:var(--blue-soft);color:var(--blue-strong)}
+.processStepBtn.active:after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;background:var(--blue)}
+.processCanvas{display:grid;grid-template-columns:1fr .9fr;gap:30px;align-items:center;min-height:230px;padding:28px}
+.processVisual{position:relative;min-height:160px;border:1px solid var(--line);border-radius:12px;background:#f8fafc;overflow:hidden}
+.processDocMini,.processSheetMini{position:absolute;width:38%;height:72%;top:14%;border:1px solid var(--line);border-radius:10px;background:#fff;box-shadow:0 10px 28px rgba(17,24,39,.07);transition:transform .35s ease,opacity .35s ease}
+.processDocMini{left:8%}.processSheetMini{right:8%}
+.processDocMini:before{content:"PDF";position:absolute;left:10px;top:8px;color:var(--muted);font-size:9px}
+.processSheetMini:before{content:"EXCEL";position:absolute;left:10px;top:8px;color:var(--muted);font-size:9px}
+.processLines{position:absolute;left:14%;right:14%;top:42%;height:44%;background:repeating-linear-gradient(to bottom,#dfe5ec 0 1px,transparent 1px 14px);opacity:.75}
+.processPulse{position:absolute;left:49%;top:50%;width:12px;height:12px;border-radius:50%;background:var(--blue);box-shadow:0 0 0 0 rgba(79,140,255,.3);transition:all .3s ease}
+.processCopy .kicker{margin-bottom:8px}
+.processCopy h3{margin-bottom:8px;font-size:23px;letter-spacing:-.03em}
+.processCopy p{margin:0;color:var(--muted);font-size:13px}
+.processLab[data-stage="1"] .processSheetMini{opacity:.25;transform:translateX(24px)}
+.processLab[data-stage="2"] .processSheetMini{opacity:.65}
+.processLab[data-stage="3"] .processPulse{background:var(--amber);box-shadow:0 0 0 10px rgba(245,158,11,.11)}
+.processLab[data-stage="4"] .processPulse{left:67%;background:var(--blue);box-shadow:0 0 0 10px rgba(79,140,255,.10)}
+.processLab[data-stage="5"] .processSheetMini{transform:translateY(-4px);box-shadow:0 16px 34px rgba(17,24,39,.12)}
+
 .reject{padding:96px 0;background:var(--graphite);color:#fff}
 .rejectGrid{display:grid;grid-template-columns:1.1fr .9fr;gap:70px;align-items:center}
 .reject .kicker{color:#9fbaff}
@@ -227,6 +292,12 @@ h2{max-width:830px;margin-bottom:14px;font-size:clamp(36px,4vw,46px);line-height
   .reviewBody{grid-template-columns:1fr}
   .sourcePane{border-right:0;border-bottom:1px solid var(--line)}
   .sourcePreview{height:260px}
+  .liveReview{grid-template-columns:1fr;padding:12px}
+  .livePdf img{min-height:220px}
+  .processRail{grid-template-columns:repeat(5,1fr)}
+  .processStepBtn{padding:12px 8px;text-align:center}
+  .processStepBtn strong{font-size:10px}
+  .processCanvas{grid-template-columns:1fr;padding:18px}
   .rejectFlow{display:grid;grid-template-columns:1fr;gap:10px}
   .rejectArrow{transform:rotate(90deg);text-align:center}
   .rejectStep{width:100%}
@@ -269,19 +340,29 @@ h2{max-width:830px;margin-bottom:14px;font-size:clamp(36px,4vw,46px);line-height
 <section class="hero">
   <div class="wrap heroGrid">
     <div>
-      <span class="kicker">Review-first PDF extraction</span>
+      <span class="kicker">PDF to Excel, with evidence</span>
       <h1>Turn complex PDFs into Excel you can actually verify.</h1>
-      <p class="lead">Extract structured data, flag suspicious results, and trace them back to the original PDF before export.</p>
+      <p class="lead">PDflow is built around a harder question than “did export finish?”: can the spreadsheet still be trusted? It recovers structure, links reviewable values back to the PDF, and stops when confidence is insufficient.</p>
       <div class="actions">
         <a class="btn primary" href="#share">Submit a difficult PDF &rarr;</a>
         <a class="textlink" href="#validation">See real tests &rarr;</a>
       </div>
-      <div class="micro">Built for quotations, catalogs, SKU tables, and difficult multi-page PDFs.</div>
+      <div class="micro">Built around evidence, not a green “success” message.</div>
     </div>
     <div class="heroVisual" aria-label="Illustrative PDF to structured Excel flow">
       <div class="docCard">
-        <div class="cardTop"><span>Supplier quotation</span><span>PDF</span></div>
-        <img src="screens/validation/b02-page1.webp" width="1263" height="893" alt="Redacted supplier quotation used in PDflow validation">
+        <div class="cardTop"><span>Sample quotation</span><span>Illustrative</span></div>
+        <div class="safeDoc" aria-label="Illustrative non-sensitive quotation sample">
+          <div class="safeDocHead"><strong>Sample Components Ltd.</strong><span>Quotation Q-2026-014</span></div>
+          <div class="safeDocMeta"><div></div><div></div><div></div><div></div></div>
+          <div class="safeQuoteTable">
+            <div class="safeQuoteRow head"><span>Item</span><span>Description</span><span>Qty</span><span>Price</span></div>
+            <div class="safeQuoteRow"><span>001</span><span>Hex Bolt M6</span><span>100</span><span>0.20</span></div>
+            <div class="safeQuoteRow focus"><span>002</span><span>Hex Bolt M8</span><span>200</span><span>0.30</span></div>
+            <div class="safeQuoteRow"><span>003</span><span>Washer M6</span><span>100</span><span>0.10</span></div>
+          </div>
+          <div class="safeDocNote">Illustrative sample — no customer or company data</div>
+        </div>
       </div>
       <div class="trace"><span class="traceLabel">Source-linked structure</span></div>
       <div class="sheetCard">
@@ -301,8 +382,8 @@ h2{max-width:830px;margin-bottom:14px;font-size:clamp(36px,4vw,46px);line-height
 <section class="section" id="why">
   <div class="wrap reveal">
     <span class="kicker">The problem</span>
-    <h2>A successful conversion can still be wrong.</h2>
-    <p class="sectionLead">The difficult errors are often subtle: a row shifts, a table breaks across pages, or one value lands in the wrong place.</p>
+    <h2>The dangerous errors are the ones that still look successful.</h2>
+    <p class="sectionLead">The worst failures do not look broken. They look finished — until someone checks the rows.</p>
     <div class="problemGrid">
       <div class="problemItem">
         <h3>Row shift</h3>
@@ -339,8 +420,8 @@ h2{max-width:830px;margin-bottom:14px;font-size:clamp(36px,4vw,46px);line-height
 <section class="section" id="validation">
   <div class="wrap reveal">
     <span class="kicker">Real validation</span>
-    <h2>Tested on real PDFs, not demo files.</h2>
-    <p class="sectionLead">Current evidence comes from real-world documents and repeatable conversion runs.</p>
+    <h2>We test the PDFs that break normal converters.</h2>
+    <p class="sectionLead">Real files, real failure modes, repeatable runs.</p>
     <div class="validationGrid">
       <article class="caseMain">
         <div class="caseHead">
@@ -348,13 +429,21 @@ h2{max-width:830px;margin-bottom:14px;font-size:clamp(36px,4vw,46px);line-height
           <span class="badge">Main case</span>
         </div>
         <div class="beforeAfter">
-          <div class="pdfThumb"><img src="screens/validation/b02-page1.webp" width="1263" height="893" loading="lazy" alt="Redacted supplier quotation page used as a real PDflow test"></div>
+          <div class="safeValidationVisual">
+            <h4>Real test source withheld from the website</h4>
+            <p>The quotation is part of the validation set, but its document image is not published.</p>
+            <div class="safeQuoteTable">
+              <div class="safeQuoteRow head"><span>Item</span><span>Description</span><span>Qty</span><span>Price</span></div>
+              <div class="safeQuoteRow"><span>001</span><span>Sample component</span><span>100</span><span>0.20</span></div>
+              <div class="safeQuoteRow"><span>002</span><span>Sample component</span><span>200</span><span>0.30</span></div>
+            </div>
+          </div>
           <div class="arrow">&rarr;</div>
           <div class="pendingBox">
             <div><strong>Current-build verification pending</strong><span>Final before/after metrics will be inserted only after the current Router gate is re-verified.</span></div>
           </div>
         </div>
-        <div class="caseFoot"><span>Real test - redacted sample</span><span>Metrics not yet published</span></div>
+        <div class="caseFoot"><span>Real test - source image withheld</span><span>Metrics not yet published</span></div>
       </article>
       <article class="caseSide">
         <div class="caseHead">
@@ -378,27 +467,38 @@ h2{max-width:830px;margin-bottom:14px;font-size:clamp(36px,4vw,46px);line-height
 
 <section class="section" id="review">
   <div class="wrap reveal">
-    <span class="kicker">Source-linked review</span>
-    <h2>Review extracted values with their PDF source.</h2>
-    <p class="sectionLead">The review model is simple: focus attention on the cells that need it, then trace them back to the source.</p>
-    <div class="reviewShell">
-      <div class="reviewTop"><span>Validation build preview</span><span>Placeholder until final redacted workspace screenshot is supplied</span></div>
-      <div class="reviewBody">
-        <div class="sourcePane">
-          <div class="sourcePreview"><span>Real Review Workspace screenshot<br>will replace this placeholder before launch.</span></div>
+    <span class="kicker">Live source check</span>
+    <h2>Click a cell. See its source in the PDF.</h2>
+    <p class="sectionLead">This is current-build output from a public tagged PDF — not a mockup. Pick a value on the right and the exact source region moves on the PDF.</p>
+    <div class="liveReview">
+      <div class="livePdf">
+        <img src="screens/validation/public-review-p6.webp" width="1199" height="418" loading="lazy" alt="Public tagged PDF sample used for source-linked review">
+        <div class="sourceHighlight" id="sourceHighlight" style="left:53.3413%;top:40.1158%;width:40.3121%;height:21.9789%"></div>
+      </div>
+      <div class="livePanel">
+        <div class="livePanelHead">
+          <span class="realFlag">Real public sample</span>
+          <strong>Current build · Tagged Structure</strong>
+          <span>Page 6 · source coordinates captured during extraction</span>
         </div>
-        <div class="tablePane">
-          <div class="tableDemo">
-            <div class="reviewRow head"><span>Item</span><span>Description</span><span>Qty</span><span>Price</span></div>
-            <div class="reviewRow"><span>A-101</span><span>Product A</span><span>10</span><span>$120</span></div>
-            <div class="reviewRow active"><span>A-102</span><span>Product B</span><span>5</span><span>$89</span></div>
-            <div class="reviewRow"><span>A-103</span><span>Product C</span><span>8</span><span>$65</span></div>
-          </div>
-          <p class="reviewNote">Illustrative interaction: a selected cell will highlight its PDF source in the final build.</p>
+        <div class="sourceCells">
+          <button class="sourceCell" type="button" data-left="5.0026" data-top="39.6363" data-width="2.3755" data-height="30.7953">
+            <small>Field name · raw extracted value</small><b>产品名称</b>
+          </button>
+          <button class="sourceCell active" type="button" data-left="53.3413" data-top="40.1158" data-width="40.3121" data-height="21.9789">
+            <small>Example · raw extracted value</small><b>PRE-SALE Original OnePlus 6T Smartphone 8GB rom 256GB ram…</b>
+          </button>
+          <button class="sourceCell" type="button" data-left="95.2294" data-top="39.6363" data-width="2.3755" data-height="14.3742">
+            <small>Required · raw extracted value</small><b>必填</b>
+          </button>
+        </div>
+        <div class="sourceMeta">
+          Click or hover a value to move the source highlight.<br>
+          Evidence: <strong>page + bounding box + extraction method</strong>.
         </div>
       </div>
     </div>
-    <div class="reviewStatement">The goal is not blind trust in extraction. The goal is faster, more focused verification.</div>
+    <div class="reviewStatement">The point is not to ask you to trust the converter. It is to make verification cheap enough to actually do.</div>
   </div>
 </section>
 
@@ -406,8 +506,8 @@ h2{max-width:830px;margin-bottom:14px;font-size:clamp(36px,4vw,46px);line-height
   <div class="wrap rejectGrid reveal">
     <div>
       <span class="kicker">Real test</span>
-      <h2>Sometimes the right output is no output.</h2>
-      <p>A public annual report could not be converted into a trustworthy table structure, so PDflow stopped instead of returning a plausible-looking spreadsheet.</p>
+      <h2>If the structure cannot be trusted, PDflow stops.</h2>
+      <p>A public annual report failed PDflow’s structure checks. No spreadsheet was returned. A plausible-looking result would have been worse.</p>
     </div>
     <div class="rejectFlow" aria-label="Reject flow">
       <div class="rejectStep"><b>1</b><span>Structure check</span></div>
@@ -423,13 +523,27 @@ h2{max-width:830px;margin-bottom:14px;font-size:clamp(36px,4vw,46px);line-height
   <div class="wrap workflowScope reveal">
     <div>
       <span class="kicker">How it works today</span>
-      <h2>Conversion is only the middle step.</h2>
-      <div class="timeline">
-        <div class="timelineStep" data-step="01"><strong>Submit a real PDF</strong><span>Beta samples are processed manually.</span></div>
-        <div class="timelineStep" data-step="02"><strong>Recover structure</strong><span>Extract supported tables and rows.</span></div>
-        <div class="timelineStep" data-step="03"><strong>Check risk</strong><span>Surface structural uncertainty.</span></div>
-        <div class="timelineStep" data-step="04"><strong>Review source</strong><span>Compare values with the PDF.</span></div>
-        <div class="timelineStep" data-step="05"><strong>Return the result</strong><span>Receive the Excel output and notes.</span></div>
+      <h2>What actually happens after you send a PDF.</h2>
+      <div class="processLab" id="processLab" data-stage="1">
+        <div class="processRail">
+          <button class="processStepBtn active" type="button" data-stage="1"><span>01</span><strong>Submit</strong></button>
+          <button class="processStepBtn" type="button" data-stage="2"><span>02</span><strong>Recover</strong></button>
+          <button class="processStepBtn" type="button" data-stage="3"><span>03</span><strong>Check</strong></button>
+          <button class="processStepBtn" type="button" data-stage="4"><span>04</span><strong>Review</strong></button>
+          <button class="processStepBtn" type="button" data-stage="5"><span>05</span><strong>Return</strong></button>
+        </div>
+        <div class="processCanvas">
+          <div class="processVisual" aria-hidden="true">
+            <div class="processDocMini"><div class="processLines"></div></div>
+            <div class="processPulse"></div>
+            <div class="processSheetMini"><div class="processLines"></div></div>
+          </div>
+          <div class="processCopy">
+            <span class="kicker" id="processKicker">Step 01</span>
+            <h3 id="processTitle">You send the difficult PDF.</h3>
+            <p id="processText">During beta, the file is processed manually through the current PDflow build.</p>
+          </div>
+        </div>
       </div>
     </div>
     <div class="scopeBox">
@@ -447,7 +561,7 @@ h2{max-width:830px;margin-bottom:14px;font-size:clamp(36px,4vw,46px);line-height
   <div class="wrap submitGrid reveal">
     <div class="submitCopy">
       <span class="kicker">Submit a PDF</span>
-      <h2>Send us the difficult one.</h2>
+      <h2>Send us the PDF that makes you check every row.</h2>
       <p class="sectionLead">We'll run a redacted sample through the current PDflow build and return the result with notes on what we could recover — and what we couldn't trust.</p>
       <div class="returnList" aria-label="What you get back">
         <span>The Excel output from the current build</span>
@@ -576,6 +690,48 @@ form?.addEventListener('submit',async(e)=>{
   }finally{
     submit.disabled=false;
   }
+});
+
+const sourceHighlight=document.getElementById('sourceHighlight');
+const sourceCells=[...document.querySelectorAll('.sourceCell')];
+function activateSourceCell(button){
+  if(!sourceHighlight||!button)return;
+  sourceCells.forEach((b)=>b.classList.toggle('active',b===button));
+  sourceHighlight.style.left=button.dataset.left+'%';
+  sourceHighlight.style.top=button.dataset.top+'%';
+  sourceHighlight.style.width=button.dataset.width+'%';
+  sourceHighlight.style.height=button.dataset.height+'%';
+  sourceHighlight.classList.remove('pulse');
+  requestAnimationFrame(()=>sourceHighlight.classList.add('pulse'));
+  setTimeout(()=>sourceHighlight.classList.remove('pulse'),420);
+}
+sourceCells.forEach((button)=>{
+  button.addEventListener('click',()=>activateSourceCell(button));
+  button.addEventListener('mouseenter',()=>activateSourceCell(button));
+});
+
+const processLab=document.getElementById('processLab');
+const processButtons=[...document.querySelectorAll('.processStepBtn')];
+const processKicker=document.getElementById('processKicker');
+const processTitle=document.getElementById('processTitle');
+const processText=document.getElementById('processText');
+const processCopy={
+  1:['Step 01','You send the difficult PDF.','During beta, the file is processed manually through the current PDflow build.'],
+  2:['Step 02','PDflow tries to recover structure.','Tagged structure and ruled geometry are used when the document provides trustworthy evidence.'],
+  3:['Step 03','The result is checked before it is trusted.','Suspicious structure is surfaced instead of being hidden behind a successful export message.'],
+  4:['Step 04','Review goes back to the source.','Where source coordinates exist, extracted values can be traced to the PDF page and region.'],
+  5:['Step 05','You get the result — or an explicit stop.','Usable output is returned with notes. If the structure cannot be trusted, PDflow can return no output instead.']
+};
+function setProcessStage(stage){
+  if(!processLab||!processCopy[stage])return;
+  processLab.dataset.stage=stage;
+  processButtons.forEach((b)=>b.classList.toggle('active',Number(b.dataset.stage)===Number(stage)));
+  const [k,t,p]=processCopy[stage];
+  processKicker.textContent=k; processTitle.textContent=t; processText.textContent=p;
+}
+processButtons.forEach((button)=>{
+  button.addEventListener('click',()=>setProcessStage(Number(button.dataset.stage)));
+  button.addEventListener('mouseenter',()=>setProcessStage(Number(button.dataset.stage)));
 });
 
 const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
