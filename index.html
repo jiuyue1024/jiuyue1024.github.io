@@ -19,9 +19,9 @@
   --blue:#4f8cff;
   --blue-strong:#356fe8;
   --blue-soft:#eef4ff;
-  --amber:#f59e0b;
+  --amber:#4f8cff;
   --graphite:#111827;
-  --green:#16845f;
+  --green:#356fe8;
   --max:1160px;
 }
 *{box-sizing:border-box}
@@ -38,22 +38,22 @@ img{display:block;max-width:100%}
 .brand img{width:28px;height:28px;border-radius:7px}
 .navlinks{display:flex;gap:26px;color:var(--muted);font-size:13px}
 .navlinks a:hover{color:var(--text)}
-.navcta{display:inline-flex;align-items:center;justify-content:center;min-height:38px;padding:0 14px;border-radius:8px;background:var(--blue);color:#fff;font-size:13px;font-weight:750}
+.navcta{display:inline-flex;align-items:center;justify-content:center;min-height:38px;padding:0 14px;border-radius:8px;background:var(--text);color:#fff;font-size:13px;font-weight:750}
 .hero{padding:104px 56px 72px;text-align:center;border-bottom:1px solid var(--line)}
-.eyebrow,.kicker{color:var(--blue-strong);font:800 11px/1 ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.15em;text-transform:uppercase}
+.eyebrow,.kicker{color:var(--muted);font:800 11px/1 ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.15em;text-transform:uppercase}
 h1,h2,h3,p{margin-top:0}
 h1{max-width:850px;margin:20px auto 20px;font-size:clamp(50px,6.2vw,78px);line-height:1.01;letter-spacing:-.06em}
 .heroLead{max-width:690px;margin:0 auto;color:var(--muted);font-size:17px;line-height:1.7}
 .heroActions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:30px}
 .btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 17px;border:1px solid var(--line-strong);border-radius:8px;background:#fff;color:var(--text);font-size:13px;font-weight:750;cursor:pointer}
-.btn.primary{border-color:var(--blue);background:var(--blue);color:#fff}
+.btn.primary{border-color:var(--text);background:var(--text);color:#fff}
 .heroNote{margin-top:18px;color:var(--soft);font-size:11px}
 .factStrip{display:grid;grid-template-columns:1.2fr repeat(3,.45fr);border-bottom:1px solid var(--line)}
 .factIntro,.fact{min-height:108px;padding:28px 32px;border-right:1px solid var(--line);display:flex;flex-direction:column;justify-content:center}
 .fact:last-child{border-right:0}
 .factIntro strong{font-size:18px;letter-spacing:-.025em}
 .factIntro span{margin-top:7px;color:var(--muted);font-size:12px}
-.fact b{color:var(--blue-strong);font:800 40px/1 ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:-.05em}
+.fact b{color:var(--text);font:800 40px/1 ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:-.05em}
 .fact span{margin-top:7px;color:var(--muted);font-size:11px}
 .section{padding:82px 56px;border-bottom:1px solid var(--line)}
 .sectionGrid{display:grid;grid-template-columns:.82fr 1.18fr;gap:64px;align-items:start}
@@ -77,8 +77,8 @@ h2{font-size:clamp(34px,4vw,50px);line-height:1.07;letter-spacing:-.045em;margin
 .pdfStage img{width:100%;height:100%;min-height:430px;object-fit:contain}
 .sourceBox{position:absolute;border:2px solid var(--blue);background:rgba(79,140,255,.12);box-shadow:0 0 0 5px rgba(79,140,255,.06);transition:left .22s ease,top .22s ease,width .22s ease,height .22s ease}
 .valuePane{padding:30px 28px;display:flex;flex-direction:column}
-.realTag{display:flex;align-items:center;gap:7px;color:var(--green);font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.1em}
-.realTag:before{content:"";width:7px;height:7px;border-radius:50%;background:var(--green)}
+.realTag{display:flex;align-items:center;gap:7px;color:var(--blue-strong);font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.1em}
+.realTag:before{content:"";width:7px;height:7px;border-radius:50%;background:var(--blue)}
 .valuePane h3{margin:10px 0 5px;font-size:22px;letter-spacing:-.03em}
 .valueMeta{color:var(--muted);font-size:11px;line-height:1.5}
 .valueList{margin-top:24px;border-top:1px solid var(--line)}
@@ -86,7 +86,7 @@ h2{font-size:clamp(34px,4vw,50px);line-height:1.07;letter-spacing:-.045em;margin
 .valueBtn small{display:block;margin-bottom:6px;color:var(--soft);font-size:9px;letter-spacing:.1em;text-transform:uppercase}
 .valueBtn b{display:block;font-size:13px;line-height:1.4}
 .valueBtn.active b{color:var(--blue-strong)}
-.valueBtn.active{background:linear-gradient(90deg,var(--blue-soft),transparent 78%)}
+.valueBtn.active{background:linear-gradient(90deg,rgba(79,140,255,.08),transparent 78%)}
 .proofNote{margin-top:auto;padding-top:20px;color:var(--muted);font-size:11px;line-height:1.6}
 .reviewBottom{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line)}
 .reviewBottom div{padding:22px 28px}
@@ -95,12 +95,12 @@ h2{font-size:clamp(34px,4vw,50px);line-height:1.07;letter-spacing:-.045em;margin
 .reviewBottom span{display:block;margin-top:5px;color:var(--muted);font-size:11px}
 .reject{padding:82px 56px;background:var(--graphite);color:#fff;border-bottom:1px solid #293244}
 .rejectGrid{display:grid;grid-template-columns:1fr .9fr;gap:70px;align-items:center}
-.reject .kicker{color:#9ebaff}
+.reject .kicker{color:#aab4c3}
 .reject p{color:#cbd3df;line-height:1.65;font-size:15px}
 .rejectFlow{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid #334055}
 .rejectStep{padding:24px 16px;border-right:1px solid #334055;text-align:center}
 .rejectStep:last-child{border-right:0}
-.rejectStep b{display:block;color:#93b4ff;font:800 11px/1 ui-monospace,SFMono-Regular,Consolas,monospace;margin-bottom:10px}
+.rejectStep b{display:block;color:#cbd3df;font:800 11px/1 ui-monospace,SFMono-Regular,Consolas,monospace;margin-bottom:10px}
 .rejectStep span{font-size:12px;color:#e4e7ec}
 .workflow{padding:82px 56px;border-bottom:1px solid var(--line)}
 .workflowHead{display:grid;grid-template-columns:.78fr 1.22fr;gap:64px;align-items:end}
@@ -110,7 +110,7 @@ h2{font-size:clamp(34px,4vw,50px);line-height:1.07;letter-spacing:-.045em;margin
 .stepBtn:first-child{border-left:1px solid var(--line)}
 .stepBtn span{display:block;margin-bottom:6px;color:var(--soft);font:800 9px/1 ui-monospace,SFMono-Regular,Consolas,monospace}
 .stepBtn strong{font-size:11px}
-.stepBtn.active{color:var(--blue-strong);background:var(--blue-soft)}
+.stepBtn.active{color:var(--blue-strong);background:#f3f6fb}
 .stepBody{display:grid;grid-template-columns:1fr 1fr;min-height:250px}
 .stepVisual{position:relative;border-right:1px solid var(--line);background:#f8fafc}
 .docMini,.sheetMini{position:absolute;top:20%;width:33%;height:60%;border:1px solid var(--line);background:#fff;transition:.3s ease}
@@ -121,7 +121,7 @@ h2{font-size:clamp(34px,4vw,50px);line-height:1.07;letter-spacing:-.045em;margin
 .pulse{position:absolute;left:49%;top:48%;width:10px;height:10px;border-radius:50%;background:var(--blue);transition:.3s ease}
 .stepper[data-stage="1"] .sheetMini{opacity:.25;transform:translateX(18px)}
 .stepper[data-stage="2"] .sheetMini{opacity:.65}
-.stepper[data-stage="3"] .pulse{background:var(--amber);box-shadow:0 0 0 10px rgba(245,158,11,.12)}
+.stepper[data-stage="3"] .pulse{background:var(--blue);box-shadow:0 0 0 10px rgba(79,140,255,.10)}
 .stepper[data-stage="4"] .pulse{left:68%;box-shadow:0 0 0 10px rgba(79,140,255,.1)}
 .stepper[data-stage="5"] .sheetMini{transform:translateY(-5px)}
 .stepCopy{padding:42px}
@@ -132,42 +132,59 @@ h2{font-size:clamp(34px,4vw,50px);line-height:1.07;letter-spacing:-.045em;margin
 .scopeTitle,.scopeCol{padding:28px 30px}
 .scopeCol,.scopeTitle{border-right:1px solid var(--line)}
 .scopeCol:last-child{border-right:0}
-.scopeTitle span{color:var(--blue-strong);font:800 10px/1 ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.12em;text-transform:uppercase}
+.scopeTitle span{color:var(--muted);font:800 10px/1 ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.12em;text-transform:uppercase}
 .scopeTitle strong{display:block;margin-top:10px;font-size:20px;letter-spacing:-.03em}
 .scopeCol h3{font-size:13px;margin-bottom:10px}
 .scopeCol ul{list-style:none;padding:0;margin:0}
 .scopeCol li{padding:7px 0;border-top:1px solid var(--line);color:#475467;font-size:12px}
 .scopeCol li:first-child{border-top:0}
-.good li:before{content:"✓";color:var(--green);font-weight:900;margin-right:8px}
+.good li:before{content:"✓";color:var(--blue-strong);font-weight:900;margin-right:8px}
 .no li:before{content:"—";color:var(--soft);font-weight:900;margin-right:8px}
-.submit{display:grid;grid-template-columns:.85fr 1.15fr;border-bottom:1px solid var(--line)}
-.submitCopy{padding:78px 48px;border-right:1px solid var(--line)}
+.submit{display:grid;grid-template-columns:.82fr 1.18fr;border-bottom:1px solid var(--line)}
+.submitCopy{padding:82px 48px;border-right:1px solid var(--line)}
 .submitCopy h2{font-size:clamp(34px,4vw,48px)}
-.returnList{display:grid;gap:9px;margin-top:24px;color:#475467;font-size:12px}
+.returnList{display:grid;gap:10px;margin-top:26px;color:#475467;font-size:12px}
 .returnList span:before{content:"✓";color:var(--blue-strong);font-weight:900;margin-right:8px}
-.formWrap{padding:58px 42px}
-.form{display:grid;grid-template-columns:1fr 1fr;gap:15px}
-.field{display:flex;flex-direction:column;gap:7px}
-.full,.fileName,.issues,.consent,.formActions,.status,.privacy{grid-column:1/-1}
-.field label,.issueLabel{color:#475467;font-size:11px;font-weight:700}
-.field input,.field textarea{width:100%;padding:12px 0;border:0;border-bottom:1px solid var(--line-strong);border-radius:0;background:transparent;outline:none}
-.field textarea{min-height:92px;resize:vertical}
-.field input:focus,.field textarea:focus{border-color:var(--blue)}
+.formWrap{padding:48px 42px;background:#fcfdff}
+.form{display:grid;gap:0;border-top:1px solid var(--line-strong);border-bottom:1px solid var(--line-strong)}
+.formStep{display:grid;grid-template-columns:86px 1fr;border-bottom:1px solid var(--line)}
+.formStep:last-of-type{border-bottom:0}
+.stepLabel{padding:22px 16px 22px 0}
+.stepLabel b{display:block;font:800 11px/1 ui-monospace,SFMono-Regular,Consolas,monospace;color:var(--text)}
+.stepLabel span{display:block;margin-top:8px;color:var(--soft);font-size:9px;line-height:1.35;text-transform:uppercase;letter-spacing:.08em}
+.stepContent{padding:20px 0 22px 22px;border-left:1px solid var(--line)}
+.stepContent.two{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.field{display:flex;flex-direction:column;gap:8px}
+.field label,.issueLabel{color:#344054;font-size:11px;font-weight:800}
+.field small,.helper{color:var(--soft);font-size:10px;line-height:1.45}
+.field input,.field textarea{width:100%;padding:12px 13px;border:1px solid var(--line-strong);border-radius:8px;background:#fff;outline:none;color:var(--text)}
+.field textarea{min-height:94px;resize:vertical}
+.field input:focus,.field textarea:focus{border-color:#aeb9c8;box-shadow:0 0 0 3px rgba(16,24,40,.04)}
 .sr{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
-.drop{display:flex;align-items:center;justify-content:space-between;gap:14px;min-height:74px;padding:13px 0;border-bottom:1px dashed #b7c3d3;cursor:pointer}
-.drop.drag{border-color:var(--blue)}
-.drop strong{display:block;font-size:12px}.drop span{display:block;margin-top:3px;color:var(--muted);font-size:10px}
-.choose{padding:9px 11px;border:1px solid var(--line-strong);border-radius:7px;background:#fff;color:var(--blue-strong);font-size:11px;font-weight:800;white-space:nowrap}
-.fileName{min-height:16px;color:var(--muted);font-size:10px}
-.issueChips{display:flex;gap:7px;flex-wrap:wrap;margin-top:8px}
-.chip{min-height:32px;padding:0 10px;border:1px solid var(--line-strong);border-radius:999px;background:#fff;color:#475467;font-size:11px;cursor:pointer}
-.chip[aria-pressed="true"]{border-color:#9ebcff;background:var(--blue-soft);color:var(--blue-strong)}
-.consent{display:flex;gap:9px;color:var(--muted);font-size:10px;line-height:1.55}
-.formActions{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:4px}
-.status{min-height:18px;color:var(--muted);font-size:10px}.status.ok{color:var(--green)}.status.err{color:#9a6700}
-.privacy{display:flex;gap:18px;flex-wrap:wrap;color:var(--muted);font-size:9px}
-.privacy span:before{content:"✓";color:var(--blue-strong);font-weight:900;margin-right:5px}
-.progress{display:none;flex:1;min-width:150px;height:4px;border-radius:99px;background:#e8edf4;overflow:hidden}.progress i{display:block;height:100%;width:0;background:var(--blue)}
+.drop{position:relative;display:grid;grid-template-columns:44px 1fr auto;align-items:center;gap:12px;min-height:92px;padding:14px;border:1px dashed #b5bfcc;border-radius:10px;background:#f8fafc;cursor:pointer;transition:.16s ease}
+.drop:hover,.drop.drag{border-color:#7f8da0;background:#f4f6f8}
+.fileIcon{width:38px;height:46px;border:1px solid #cfd6df;border-radius:7px;background:#fff;position:relative}
+.fileIcon:before,.fileIcon:after{content:"";position:absolute;left:9px;right:9px;height:1px;background:#d9dfe7}
+.fileIcon:before{top:20px}.fileIcon:after{top:27px}
+.drop strong{display:block;font-size:12px;color:var(--text)}
+.drop span{display:block;margin-top:4px;color:var(--muted);font-size:10px}
+.choose{padding:9px 11px;border:1px solid #cfd6df;border-radius:7px;background:#fff;color:var(--text);font-size:10px;font-weight:800;white-space:nowrap}
+.fileName{margin-top:8px;min-height:16px;color:var(--muted);font-size:10px}
+.issueChips{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}
+.chip{min-height:34px;padding:0 11px;border:1px solid #cfd6df;border-radius:999px;background:#fff;color:#475467;font-size:11px;cursor:pointer}
+.chip:hover{border-color:#98a2b3}
+.chip[aria-pressed="true"]{border-color:var(--text);background:var(--text);color:#fff}
+.noteField{margin-top:18px}
+.consentBox{display:flex;gap:10px;padding:14px 15px;border:1px solid var(--line);border-radius:9px;background:#f8fafc;color:var(--muted);font-size:10px;line-height:1.55}
+.consentBox input{margin-top:2px}
+.actionBar{display:grid;grid-template-columns:1fr auto;gap:18px;align-items:center;padding:22px 0 0;margin-top:22px;border-top:1px solid var(--line)}
+.actionMeta strong{display:block;font-size:11px}
+.actionMeta span{display:block;margin-top:4px;color:var(--muted);font-size:10px;line-height:1.45}
+.actionBar .btn{min-width:154px;background:var(--text);border-color:var(--text);color:#fff}
+.status{min-height:18px;margin-top:10px;color:var(--muted);font-size:10px}.status.ok{color:var(--blue-strong)}.status.err{color:#7a5b14}
+.privacy{display:flex;gap:18px;flex-wrap:wrap;margin-top:14px;color:var(--muted);font-size:9px}
+.privacy span:before{content:"✓";color:var(--text);font-weight:900;margin-right:5px}
+.progress{display:none;margin-top:10px;height:4px;border-radius:99px;background:#e8edf4;overflow:hidden}.progress i{display:block;height:100%;width:0;background:var(--text)}
 .footer{padding:24px 0 36px;color:var(--soft);font-size:10px}
 .foot{display:flex;justify-content:space-between;align-items:center;gap:20px}
 .footlinks{display:flex;gap:16px}
@@ -190,8 +207,15 @@ h2{font-size:clamp(34px,4vw,50px);line-height:1.07;letter-spacing:-.045em;margin
   .stepTabs{grid-template-columns:repeat(5,1fr)}.stepBtn{padding:11px 5px;text-align:center}.stepBtn strong{font-size:9px}
   .stepBody{grid-template-columns:1fr}.stepVisual{min-height:190px;border-right:0;border-bottom:1px solid var(--line)}.stepCopy{padding:26px 20px}
   .scopeBand{grid-template-columns:1fr}.scopeTitle,.scopeCol{border-right:0;border-bottom:1px solid var(--line)}.scopeCol:last-child{border-bottom:0}
-  .submitCopy{padding:58px 18px}.formWrap{padding:42px 18px}.form{grid-template-columns:1fr}.field,.full,.fileName,.issues,.consent,.formActions,.status,.privacy{grid-column:1}
-  .drop{align-items:flex-start;flex-direction:column}.choose{width:100%;text-align:center}
+  .submitCopy{padding:58px 18px}.formWrap{padding:36px 18px}
+  .formStep{grid-template-columns:54px 1fr}
+  .stepLabel{padding:18px 10px 18px 0}
+  .stepContent{padding:18px 0 20px 14px}
+  .drop{grid-template-columns:36px 1fr;align-items:start}
+  .fileIcon{width:32px;height:40px}
+  .choose{grid-column:1/-1;width:100%;text-align:center}
+  .actionBar{grid-template-columns:1fr}
+  .actionBar .btn{width:100%}
   .foot{align-items:flex-start;flex-direction:column}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
@@ -310,15 +334,61 @@ h2{font-size:clamp(34px,4vw,50px);line-height:1.07;letter-spacing:-.045em;margin
     </div>
     <div class="formWrap">
       <form class="form" id="sampleForm">
-        <div class="field"><label for="sampleEmail">Your email</label><input id="sampleEmail" type="email" autocomplete="email" placeholder="you@example.com" required></div>
-        <div class="field"><label for="samplePdf">PDF sample</label><label class="drop" id="drop" for="samplePdf"><span><strong>Drop a PDF here</strong><span>PDF only · up to 20 MB</span></span><span class="choose">Choose PDF</span></label><input class="sr" id="samplePdf" type="file" accept="application/pdf,.pdf" required></div>
-        <div class="fileName" id="fileName">No file selected</div>
-        <div class="issues"><span class="issueLabel">What usually goes wrong?</span><div class="issueChips"><button class="chip" type="button" aria-pressed="false" data-issue="Rows shift">Rows shift</button><button class="chip" type="button" aria-pressed="false" data-issue="Columns split">Columns split</button><button class="chip" type="button" aria-pressed="false" data-issue="Multi-page table breaks">Multi-page breaks</button><button class="chip" type="button" aria-pressed="false" data-issue="Values land in wrong cells">Wrong cells</button><button class="chip" type="button" aria-pressed="false" data-issue="Other">Other</button></div></div>
-        <div class="field full"><label for="sampleProblem">Anything else? <span style="font-weight:400;color:var(--soft)">(optional)</span></label><textarea id="sampleProblem" maxlength="2600" placeholder="Add a short note if useful."></textarea></div>
-        <label class="consent"><input id="sampleConsent" type="checkbox" required><span>I have removed or anonymized sensitive information and I am comfortable sharing this file for PDflow product testing.</span></label>
-        <div class="formActions"><button class="btn primary" id="sampleSubmit" type="submit">Submit sample →</button><div class="progress" id="progress"><i id="progressBar"></i></div></div>
-        <div class="status" id="status" role="status" aria-live="polite"></div>
-        <div class="privacy"><span>Redacted samples are welcome</span><span>Used only for PDflow testing and evaluation</span></div>
+        <div class="formStep">
+          <div class="stepLabel"><b>01</b><span>Contact</span></div>
+          <div class="stepContent">
+            <div class="field">
+              <label for="sampleEmail">Where should we send the result?</label>
+              <input id="sampleEmail" type="email" autocomplete="email" placeholder="you@example.com" required>
+              <small>Used only to return your test result.</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="formStep">
+          <div class="stepLabel"><b>02</b><span>PDF sample</span></div>
+          <div class="stepContent">
+            <label class="drop" id="drop" for="samplePdf">
+              <span class="fileIcon" aria-hidden="true"></span>
+              <span><strong>Drop the difficult PDF here</strong><span>PDF only · up to 20 MB</span></span>
+              <span class="choose">Choose PDF</span>
+            </label>
+            <input class="sr" id="samplePdf" type="file" accept="application/pdf,.pdf" required>
+            <div class="fileName" id="fileName">No file selected</div>
+          </div>
+        </div>
+
+        <div class="formStep">
+          <div class="stepLabel"><b>03</b><span>Failure mode</span></div>
+          <div class="stepContent">
+            <span class="issueLabel">What makes this PDF difficult?</span>
+            <div class="issueChips">
+              <button class="chip" type="button" aria-pressed="false" data-issue="Rows shift">Rows shift</button>
+              <button class="chip" type="button" aria-pressed="false" data-issue="Columns split">Columns split</button>
+              <button class="chip" type="button" aria-pressed="false" data-issue="Multi-page table breaks">Multi-page breaks</button>
+              <button class="chip" type="button" aria-pressed="false" data-issue="Values land in wrong cells">Wrong cells</button>
+              <button class="chip" type="button" aria-pressed="false" data-issue="Other">Other</button>
+            </div>
+            <div class="field noteField">
+              <label for="sampleProblem">Anything else? <span style="font-weight:400;color:var(--soft)">(optional)</span></label>
+              <textarea id="sampleProblem" maxlength="2600" placeholder="Add a short note if useful."></textarea>
+            </div>
+          </div>
+        </div>
+
+        <div class="formStep">
+          <div class="stepLabel"><b>04</b><span>Permission</span></div>
+          <div class="stepContent">
+            <label class="consentBox"><input id="sampleConsent" type="checkbox" required><span>I have removed or anonymized sensitive information and I am comfortable sharing this file for PDflow product testing.</span></label>
+            <div class="actionBar">
+              <div class="actionMeta"><strong>Ready to test?</strong><span>We will return the result from the current PDflow build.</span></div>
+              <button class="btn" id="sampleSubmit" type="submit">Submit sample →</button>
+            </div>
+            <div class="progress" id="progress"><i id="progressBar"></i></div>
+            <div class="status" id="status" role="status" aria-live="polite"></div>
+            <div class="privacy"><span>Redacted samples are welcome</span><span>Used only for PDflow testing and evaluation</span></div>
+          </div>
+        </div>
       </form>
     </div>
   </section>
