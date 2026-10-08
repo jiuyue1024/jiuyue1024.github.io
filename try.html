@@ -82,6 +82,7 @@ function selectFile(file){
   if(!file)return;
   const ok=file.type==='application/pdf'||file.name.toLowerCase().endsWith('.pdf');
   if(!ok){alert('Please choose a PDF file.');return;}
+  if(file.size>20*1024*1024){alert('Please keep the PDF under 20 MB.');return;}
   const dt=new DataTransfer();dt.items.add(file);input.files=dt.files;
   fileName.textContent=file.name;runBtn.disabled=false;
   statusCard.classList.remove('show');setStep(0);
@@ -104,8 +105,20 @@ function renderStatus(job){
   if(job.state==='review'){statusTitle.textContent='Excel is ready, with review recommended.';setStep(4)}
   if(job.state==='no_output'){statusTitle.textContent='No output.';setStep(4)}
   if(job.state==='error'){statusTitle.textContent='Conversion stopped safely.';setStep(4)}
-  if(job.reliability_band){summary.innerHTML+=`<div><strong>Reliability band</strong><br>${job.reliability_band}</div>`}
-  (job.review_summaries||[]).forEach(s=>summary.innerHTML+=`<div>${s}</div>`);
+  if(job.reliability_band){
+    const row=document.createElement('div');
+    const label=document.createElement('strong');
+    label.textContent='Reliability band';
+    row.appendChild(label);
+    row.appendChild(document.createElement('br'));
+    row.appendChild(document.createTextNode(job.reliability_band));
+    summary.appendChild(row);
+  }
+  (job.review_summaries||[]).forEach(s=>{
+    const row=document.createElement('div');
+    row.textContent=s;
+    summary.appendChild(row);
+  });
   if(job.download_ready){
     const a=document.createElement('a');
     a.className='btn';a.textContent='Download Excel';a.href=API+'/jobs/'+job.job_id+'/download';

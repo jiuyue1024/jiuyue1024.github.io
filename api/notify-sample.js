@@ -11,6 +11,16 @@ export default async function handler(request, response) {
   if (!email || !description || !pathname || consent !== true) {
     return response.status(400).json({ error: 'Missing required fields' });
   }
+  if (typeof pathname !== 'string' || !pathname.startsWith('samples/')) {
+    return response.status(400).json({ error: 'Invalid sample path' });
+  }
+  const emailText = String(email);
+  if (emailText.length > 254 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailText)) {
+    return response.status(400).json({ error: 'Invalid email address' });
+  }
+  if (String(description).length > 3000) {
+    return response.status(400).json({ error: 'Description is too long' });
+  }
   if (!process.env.QQ_SMTP_AUTH_CODE) {
     return response.status(503).json({ error: 'Email delivery is not configured yet' });
   }

@@ -33,15 +33,10 @@ export default async function handler(request, response) {
           allowedContentTypes: ['application/pdf'],
           maximumSizeInBytes: 20 * 1024 * 1024,
           addRandomSuffix: true,
-          tokenPayload: JSON.stringify({
-            email: String(payload.email).slice(0, 254),
-            description: String(payload.description).slice(0, 3000),
-            consent: true,
-            originalName: String(payload.originalName || pathname).slice(0, 240),
-          }),
+          tokenPayload: JSON.stringify({ consent: true }),
         };
       },
-      onUploadCompleted: async ({ blob, tokenPayload }) => {
+      onUploadCompleted: async ({ blob }) => {
         console.log('PDflow sample uploaded', blob.pathname);
       },
     });

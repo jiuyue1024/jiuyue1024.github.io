@@ -614,8 +614,7 @@ if(urlLang&&DICTS[urlLang]){localStorage.setItem(KEY,urlLang);return urlLang;}
 var stored=localStorage.getItem(KEY);
 if(stored&&DICTS[stored])return stored;
 }catch(e){}
-var nav=(navigator.language||'en').toLowerCase();
-return nav.indexOf('zh')===0?'zh':'en';
+return 'en';
 }
 
 function apply(lang){
@@ -681,4 +680,4 @@ document.addEventListener('DOMContentLoaded',init);
 init();
 }
 
-})();\n
+})();
