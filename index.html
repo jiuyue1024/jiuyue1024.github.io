@@ -67,6 +67,19 @@ h2{font-size:clamp(34px,4vw,50px);line-height:1.07;letter-spacing:-.045em;margin
 .problemRow h3{margin:0;font-size:16px;letter-spacing:-.02em}
 .problemRow p{margin:0;color:var(--muted);font-size:13px;line-height:1.55}
 .problemRow small{display:inline-block;margin-top:10px;color:var(--soft);font-size:9px;letter-spacing:.1em;text-transform:uppercase}
+.evidence{padding:82px 56px;border-bottom:1px solid var(--line)}
+.evidenceHead{max-width:820px;margin-bottom:38px}
+.evidenceGrid{display:grid;grid-template-columns:.78fr 1.22fr;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.evidenceMetrics{display:grid;grid-template-columns:1fr 1fr;border-right:1px solid var(--line)}
+.evidenceMetric{padding:28px 24px;border-bottom:1px solid var(--line)}
+.evidenceMetric:nth-child(odd){border-right:1px solid var(--line)}
+.evidenceMetric:nth-last-child(-n+2){border-bottom:0}
+.evidenceMetric b{display:block;font:800 clamp(30px,4vw,52px)/1 ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:-.05em;color:var(--text)}
+.evidenceMetric span{display:block;margin-top:8px;color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.08em}
+.evidenceCopy{padding:30px 32px}
+.evidenceCopy h3{font-size:18px;letter-spacing:-.025em;margin-bottom:10px}
+.evidenceCopy p{color:var(--muted);font-size:13px;line-height:1.65;margin-bottom:18px}
+.evidenceCopy .limit{margin:0;padding-top:18px;border-top:1px solid var(--line);color:#475467;font-size:11px;line-height:1.6}
 .reviewSection{padding:0;border-bottom:1px solid var(--line)}
 .reviewHead{padding:76px 56px 34px;border-bottom:1px solid var(--line)}
 .reviewHead h2{max-width:760px}
@@ -202,6 +215,7 @@ h2{font-size:clamp(34px,4vw,50px);line-height:1.07;letter-spacing:-.045em;margin
   h1{font-size:44px}.heroLead{font-size:15px}.heroActions .btn{width:100%}
   .factStrip{grid-template-columns:1fr 1fr 1fr}.factIntro{grid-column:1/-1;border-bottom:1px solid var(--line);border-right:0}.fact{padding:20px 10px}.fact b{font-size:32px}
   .sectionGrid{gap:34px}.problemRow{grid-template-columns:38px 1fr}.problemRow>div{grid-column:2}.problemRow p,.problemRow small{grid-column:auto}
+  .evidence{padding:58px 18px}.evidenceGrid{grid-template-columns:1fr}.evidenceMetrics{border-right:0;border-bottom:1px solid var(--line)}.evidenceCopy{padding:24px 0}
   .pdfStage,.pdfStage img{min-height:230px}.valuePane{padding:22px 18px}.reviewBottom{grid-template-columns:1fr}.reviewBottom div+div{border-left:0;border-top:1px solid var(--line)}
   .rejectFlow{grid-template-columns:1fr}.rejectStep{border-right:0;border-bottom:1px solid #334055}.rejectStep:last-child{border-bottom:0}
   .stepTabs{grid-template-columns:repeat(5,1fr)}.stepBtn{padding:11px 5px;text-align:center}.stepBtn strong{font-size:9px}
@@ -262,6 +276,28 @@ h2{font-size:clamp(34px,4vw,50px);line-height:1.07;letter-spacing:-.045em;margin
     </div>
   </section>
 
+  <section class="evidence" id="quotation-evidence">
+    <div class="evidenceHead">
+      <span class="kicker">Real business file · Sanitized</span>
+      <h2>A borderless supplier quotation, checked against its own arithmetic.</h2>
+      <p class="sectionLead">This quotation has no table lines. In the earlier conversion, numeric fields were fragmented: amounts spread across multiple columns, currency symbols became separate cells, and the grand total did not sit on the Total row.</p>
+    </div>
+    <div class="evidenceGrid">
+      <div class="evidenceMetrics">
+        <div class="evidenceMetric"><b>19</b><span>Line items checked</span></div>
+        <div class="evidenceMetric"><b>$71,816.00</b><span>PDF total matched</span></div>
+        <div class="evidenceMetric"><b>×</b><span>No table lines</span></div>
+        <div class="evidenceMetric"><b>✓</b><span>Arithmetic self-check</span></div>
+      </div>
+      <div class="evidenceCopy">
+        <h3>What the current route proves on this file</h3>
+        <p>Each priced line must satisfy Quantity × Unit Price = Amount, and the line amounts must add up to the document total. On this sanitized quotation, all 19 line items reconcile and the total is $71,816.00, matching the PDF.</p>
+        <p>If that arithmetic proof does not hold, the text-aligned priced-table route does not return this table. PDflow falls back to the existing routes and surfaces a warning instead.</p>
+        <p class="limit"><strong>Limit:</strong> this route has been tuned and validated on two real priced documents so far. That is evidence of feasibility, not proof of generality. It currently targets quotations and invoices with Quantity, Unit Price, and Total/Amount-style headers.</p>
+      </div>
+    </div>
+  </section>
+
   <section class="reviewSection" id="review">
     <div class="reviewHead">
       <span class="kicker">Real source check</span>
@@ -302,20 +338,20 @@ h2{font-size:clamp(34px,4vw,50px);line-height:1.07;letter-spacing:-.045em;margin
 
   <section class="workflow" id="workflow">
     <div class="workflowHead">
-      <div><span class="kicker">How it works today</span><h2>What actually happens after you send a PDF.</h2></div>
-      <p class="sectionLead">Beta samples are still processed manually. The website collects the sample; the current PDflow build does the extraction and review work.</p>
+      <div><span class="kicker">Online Beta workflow</span><h2>What happens when you run a PDF online.</h2></div>
+      <p class="sectionLead">The Online Beta is automatic: your browser uploads one PDF to the hosted worker, PDflow selects a supported route, runs its checks, and returns READY, REVIEW, or NO OUTPUT.</p>
     </div>
     <div class="stepper" id="stepper" data-stage="1">
       <div class="stepTabs">
-        <button class="stepBtn active" type="button" data-stage="1"><span>01</span><strong>Submit</strong></button>
-        <button class="stepBtn" type="button" data-stage="2"><span>02</span><strong>Recover</strong></button>
+        <button class="stepBtn active" type="button" data-stage="1"><span>01</span><strong>Upload</strong></button>
+        <button class="stepBtn" type="button" data-stage="2"><span>02</span><strong>Route</strong></button>
         <button class="stepBtn" type="button" data-stage="3"><span>03</span><strong>Check</strong></button>
-        <button class="stepBtn" type="button" data-stage="4"><span>04</span><strong>Review</strong></button>
-        <button class="stepBtn" type="button" data-stage="5"><span>05</span><strong>Return</strong></button>
+        <button class="stepBtn" type="button" data-stage="4"><span>04</span><strong>Result</strong></button>
+        <button class="stepBtn" type="button" data-stage="5"><span>05</span><strong>Download</strong></button>
       </div>
       <div class="stepBody">
         <div class="stepVisual"><div class="docMini"><div class="lines"></div></div><div class="pulse"></div><div class="sheetMini"><div class="lines"></div></div></div>
-        <div class="stepCopy"><span class="kicker" id="stepKicker">Step 01</span><h3 id="stepTitle">You send the difficult PDF.</h3><p id="stepText">During beta, the file is processed manually through the current PDflow build.</p></div>
+        <div class="stepCopy"><span class="kicker" id="stepKicker">Step 01</span><h3 id="stepTitle">You upload one PDF to the Online Beta.</h3><p id="stepText">The hosted worker receives the PDF and queues it if another conversion is already running.</p></div>
       </div>
     </div>
   </section>
@@ -328,10 +364,10 @@ h2{font-size:clamp(34px,4vw,50px);line-height:1.07;letter-spacing:-.045em;margin
 
   <section class="submit" id="submit">
     <div class="submitCopy">
-      <span class="kicker">Submit a PDF</span>
-      <h2>Send us the PDF that makes you check every row.</h2>
-      <p class="sectionLead">We'll run a redacted sample through the current PDflow build and return the result with notes on what we could recover — and what we couldn't trust.</p>
-      <div class="returnList"><span>The Excel output from the current build</span><span>What PDflow recovered reliably</span><span>What still needs review or was rejected</span></div>
+      <span class="kicker">Manual sample review</span>
+      <h2>Have a difficult PDF the Online Beta cannot handle?</h2>
+      <p class="sectionLead">If the Online Beta returns NO OUTPUT or REVIEW, or the Excel still looks wrong, send a redacted sample and a short note. This is a separate manual review flow.</p>
+      <div class="returnList"><span>A manual review of the current-build result</span><span>What PDflow recovered reliably</span><span>What failed or still needs review</span></div>
     </div>
     <div class="formWrap">
       <form class="form" id="sampleForm">
@@ -339,7 +375,7 @@ h2{font-size:clamp(34px,4vw,50px);line-height:1.07;letter-spacing:-.045em;margin
           <div class="stepLabel"><b>01</b><span>Contact</span></div>
           <div class="stepContent">
             <div class="field">
-              <label for="sampleEmail">Where should we send the result?</label>
+              <label for="sampleEmail">Where should we send the manual review result?</label>
               <input id="sampleEmail" type="email" autocomplete="email" placeholder="you@example.com" required>
               <small>Used only to return your test result.</small>
             </div>
@@ -382,12 +418,12 @@ h2{font-size:clamp(34px,4vw,50px);line-height:1.07;letter-spacing:-.045em;margin
           <div class="stepContent">
             <label class="consentBox"><input id="sampleConsent" type="checkbox" required><span>I have removed or anonymized sensitive information and I am comfortable sharing this file for PDflow product testing.</span></label>
             <div class="actionBar">
-              <div class="actionMeta"><strong>Ready to test?</strong><span>We will return the result from the current PDflow build.</span></div>
-              <button class="btn" id="sampleSubmit" type="submit">Submit sample →</button>
+              <div class="actionMeta"><strong>Ready to submit for manual review?</strong><span>Your email is used only to return this review result.</span></div>
+              <button class="btn" id="sampleSubmit" type="submit">Submit for manual review →</button>
             </div>
             <div class="progress" id="progress"><i id="progressBar"></i></div>
             <div class="status" id="status" role="status" aria-live="polite"></div>
-            <div class="privacy"><span>Redacted samples are welcome</span><span>Used only for PDflow testing and evaluation</span></div>
+            <div class="privacy"><span>Redacted samples are welcome</span><span>Used only for PDflow testing and evaluation</span><span>Contact email is used only to return the result</span></div>
           </div>
         </div>
       </form>
@@ -417,11 +453,11 @@ const stepKicker=document.getElementById('stepKicker');
 const stepTitle=document.getElementById('stepTitle');
 const stepText=document.getElementById('stepText');
 const copy={
-  1:['Step 01','You send the difficult PDF.','During beta, the file is processed manually through the current PDflow build.'],
-  2:['Step 02','PDflow tries to recover structure.','Tagged structure and ruled geometry are used when the document provides trustworthy evidence.'],
-  3:['Step 03','The result is checked before it is trusted.','Suspicious structure is surfaced instead of being hidden behind a successful export message.'],
-  4:['Step 04','Review goes back to the source.','Where source coordinates exist, extracted values can be traced to the PDF page and region.'],
-  5:['Step 05','You get a result — or an explicit stop.','Usable output is returned with notes. If the structure cannot be trusted, PDflow can return no output instead.']
+  1:['Step 01','You upload one PDF to the Online Beta.','The hosted worker receives the PDF and queues it if another conversion is already running.'],
+  2:['Step 02','PDflow selects a supported route.','The Online Beta currently supports tagged PDFs, ruled tables, and a narrow self-checking route for priced borderless tables.'],
+  3:['Step 03','The selected route has to pass its checks.','For priced borderless tables, Quantity × Unit Price must match Amount and the line amounts must reconcile to the document total.'],
+  4:['Step 04','You get an explicit result.','READY returns Excel; REVIEW returns Excel with a warning; NO OUTPUT means PDflow did not trust the structure enough to export.'],
+  5:['Step 05','Download the Excel when it is ready.','Generated Excel results are temporary: the service reports a 30-minute result window, and the result is removed after the first download.']
 };
 function setStage(n){stepper.dataset.stage=n;stepButtons.forEach(b=>b.classList.toggle('active',Number(b.dataset.stage)===n));[stepKicker.textContent,stepTitle.textContent,stepText.textContent]=copy[n];}
 stepButtons.forEach(b=>{b.addEventListener('click',()=>setStage(Number(b.dataset.stage)));b.addEventListener('mouseenter',()=>setStage(Number(b.dataset.stage)));});

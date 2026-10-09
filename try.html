@@ -16,7 +16,7 @@
   <section class="hero">
     <span class="eyebrow">Online beta · current build</span>
     <h1>Try PDflow on a real PDF.</h1>
-    <p>This Online Beta runs the current PDflow web-safe routes: Tagged Structure, Ruled Geometry, and self-checking text-aligned priced tables. It returns an Excel file only when the route completes safely.</p>
+    <p>This Online Beta supports text-based PDFs through tagged structure, ruled tables, and a narrow self-checking route for priced borderless tables. Scanned or image-only PDFs are not supported because OCR is not enabled in the Online Beta.</p>
   </section>
 
   <section class="lab">
@@ -56,7 +56,7 @@
         <div class="resultActions" id="resultActions"></div>
       </div>
 
-      <div class="notice">Privacy: the input PDF is deleted from the worker when processing finishes. A generated Excel file is deleted after the first download or automatically after 30 minutes. This beta runs one conversion at a time; queued jobs are shown before processing starts. OCR and the legacy fallback remain disabled.</div>
+      <div class="notice">This Beta runs one conversion at a time; queued jobs are shown before processing starts. Generated Excel results are temporary: the service reports a 30-minute result window, and after the first download the result becomes unavailable. Scanned or image-only PDFs are not supported because OCR is not enabled.</div>
     </div>
   </section>
 </main>

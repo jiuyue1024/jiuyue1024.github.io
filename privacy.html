@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#060607">
-<title data-i18n="pv.tag">Privacy Policy — PDflow</title>
-<meta name="description" data-i18n="pv.sub" content="PDflow desktop processing is local-first. Website PDF sample submissions are optional and handled separately.">
+<title>Privacy Policy — PDflow</title>
+<meta name="description" content="How PDflow handles Online Beta conversions and manual sample submissions.">
 <link rel="icon" href="screens/logo/pdflow-logo-icon.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -56,9 +56,9 @@
 <section class="page-hero">
 <div class="container">
     <span class="s-tag">Privacy Policy</span>
-    <h1 class="page-h1">Website uploads are opt-in<br>and temporary.</h1>
-    <p class="page-sub">PDflow has two separate website flows: Online Beta conversion and manual sample submission. They use different retention rules, described below.</p>
-    <div class="page-meta">Last updated: October 8, 2026</div>
+    <h1 class="page-h1">Two upload flows.<br>Two different purposes.</h1>
+    <p class="page-sub">PDflow separates automatic Online Beta conversion from manual sample review. The rules below describe each flow as it works today.</p>
+    <div class="page-meta">Last updated: October 9, 2026</div>
     <div class="page-acts">
         <a href="index.html" class="btn btn-primary btn-lg">Back to PDflow</a>
     </div>
@@ -67,17 +67,17 @@
 
 <article class="legal">
 
-<section><h2>1. Online Beta Conversion</h2><p>When you choose Try Online Beta, your PDF is sent to PDflow's hosted conversion worker solely to run the current web-safe conversion routes. No account or email address is required for this conversion flow. Please do not upload confidential, regulated, or otherwise sensitive documents.</p></section>
+<section><h2>1. Online Beta Conversion</h2><p>Try Online Beta is an automatic conversion flow. Your browser sends one PDF to PDflow's hosted worker, which returns READY, REVIEW, or NO OUTPUT. No account or email address is required for this flow.</p></section>
 
-<section><h2>2. Online Beta Retention and Deletion</h2><p>The conversion worker deletes its input PDF when processing finishes. If an Excel file is produced, that temporary Excel file is deleted after the first successful download or automatically after 30 minutes, whichever comes first. Job-status metadata such as the filename, result state, and review summary may remain temporarily in worker memory but is not intended as persistent document storage.</p></section>
+<section><h2>2. Online Beta Result Retention</h2><p>Generated Excel results are temporary. The live service currently reports a 30-minute result window. After the first successful download, the job reports the temporary result as deleted and the same result is no longer available for download. We do not publish a stronger deletion promise for the uploaded source PDF here until deployment-side source-file cleanup is independently re-audited.</p></section>
 
-<section><h2>3. Manual Sample Submissions</h2><p>If you use the separate sample-submission form on yinliupdflow.com, the PDF, your email address, and the description you provide are used for PDflow testing and evaluation. The PDF is uploaded to private cloud storage and forwarded as an attachment to the PDflow research mailbox. This flow does not currently promise a fixed retention period or complete deletion across every copy. Please redact confidential or sensitive information before submitting a sample.</p></section>
+<section><h2>3. Manual Sample Review</h2><p>The separate sample form on the main website is a manual review flow. The contact email is used only to return the review result. The PDF and problem description are used only for PDflow testing and evaluation. Redacted samples are welcome, and the form requires you to confirm that sensitive information has been removed or anonymized before submission.</p></section>
 
-<section><h2>4. Website Analytics</h2><p>This website may use privacy-focused analytics to understand aggregate page views and navigation patterns. Analytics are separate from uploaded PDF contents and are not used to inspect document contents.</p></section>
+<section><h2>4. Manual Sample Storage</h2><p>Manual samples are uploaded through the website's sample-submission infrastructure and forwarded to the PDflow research mailbox for review. We do not currently publish a fixed deletion period or promise complete deletion across every copy in this manual flow. Do not submit confidential, regulated, or otherwise sensitive documents.</p></section>
 
-<section><h2>5. Infrastructure and Operational Logs</h2><p>Hosting and infrastructure providers may process standard connection and operational metadata needed to deliver the website and conversion service. PDflow's application code does not intentionally log PDF contents. The Online Beta is designed for low-volume testing and should not be treated as secure archival storage.</p></section>
+<section><h2>5. Website Analytics and Infrastructure</h2><p>The website may use privacy-focused analytics for aggregate page views and navigation patterns. Hosting and infrastructure providers may also process standard connection and operational metadata needed to deliver the website and conversion service. These systems are separate from the manual review purpose described above.</p></section>
 
-<section><h2>6. Children</h2><p>PDflow is not directed at children under 13. We do not knowingly collect personal information from children through the Online Beta or sample-submission flow.</p></section>
+<section><h2>6. Children</h2><p>PDflow is not directed at children under 13. We do not knowingly collect personal information from children through the Online Beta or manual sample-review flow.</p></section>
 
 <section><h2>7. Changes to This Policy</h2><p>We may update this policy as the product evolves. Material changes will be reflected by a new "Last updated" date on this page.</p></section>
 
@@ -87,10 +87,10 @@
 
 <section class="page-cta">
 <div class="container">
-    <h2>Privacy should match how the product actually works.</h2>
-    <p>Online Beta inputs are deleted after processing. Temporary Excel results are deleted after download or after 30 minutes.</p>
+    <h2>Choose the flow that matches what you need.</h2>
+    <p>Use Online Beta for automatic conversion. Use Manual sample review when a difficult file needs human follow-up.</p>
     <a href="try.html" class="btn btn-primary btn-xl">Try Online Beta</a>
-    <div class="page-cta-meta">Current web-safe beta · No account required</div>
+    <div class="page-cta-meta">Online Beta · Automatic conversion · No account required</div>
 </div>
 </section>
 
