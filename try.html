@@ -38,6 +38,7 @@
       </label>
       <input class="sr" id="pdfInput" type="file" accept="application/pdf,.pdf">
       <div class="fileName" id="fileName">No file selected</div>
+      <div style="margin-top:8px;font-size:12px;color:var(--muted)">No PDF handy? <button type="button" id="sampleBtn" style="background:none;border:0;padding:0;font:inherit;color:inherit;text-decoration:underline;cursor:pointer">Try a sample quotation</button> <span aria-hidden="true">&middot;</span> <a href="sample-quotation.pdf" download style="color:inherit;text-decoration:underline">download the sample PDF</a></div>
 
       <div class="action"><span style="font-size:11px;color:var(--muted)">Runs against the hosted PDflow worker.</span><button class="btn" id="runBtn" disabled>Run PDflow →</button></div>
       <div class="notice" style="margin-top:12px">Your PDF is deleted from the server as soon as conversion finishes. The Excel result is deleted right after you download it, or after 30 minutes. Files are never sent to third-party OCR or AI services. <a href="privacy.html" style="text-decoration:underline">Privacy</a></div>
@@ -92,6 +93,13 @@ input.addEventListener('change',()=>selectFile(input.files?.[0]));
 ['dragenter','dragover'].forEach(n=>drop.addEventListener(n,e=>{e.preventDefault();drop.classList.add('drag')}));
 ['dragleave','drop'].forEach(n=>drop.addEventListener(n,e=>{e.preventDefault();drop.classList.remove('drag')}));
 drop.addEventListener('drop',e=>selectFile([...(e.dataTransfer?.files||[])][0]));
+document.getElementById('sampleBtn').addEventListener('click',async()=>{
+  try{
+    const r=await fetch('sample-quotation.pdf');
+    if(!r.ok)throw new Error('sample unavailable');
+    selectFile(new File([await r.blob()],'sample-quotation.pdf',{type:'application/pdf'}));
+  }catch(err){alert('Could not load the sample PDF. Please try again.');}
+});
 
 function renderStatus(job){
   statusCard.classList.add('show');
