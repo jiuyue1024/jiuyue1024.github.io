@@ -58,12 +58,54 @@
         <div class="resultActions" id="resultActions"></div>
       </div>
 
+
       <div class="notice">This Beta runs one conversion at a time; queued jobs are shown before processing starts. Generated Excel results are temporary: the service reports a 30-minute result window, and after the first download the result becomes unavailable. Scanned or image-only PDFs are not supported because OCR is not enabled.</div>
     </div>
   </section>
+  <div class="wrap">
+
+    <section class="srcView" id="srcView" hidden aria-labelledby="srcTitle">
+      <h3 id="srcTitle">Check values against your PDF</h3>
+      <p class="sub">Click a value to see exactly where it came from. Your PDF is drawn in this browser from the file you chose; it is not uploaded again. The server keeps the value locations only with the temporary Excel result and deletes them with it.</p>
+      <div class="srcTabs" id="srcTabs"></div>
+      <div class="srcGrid">
+        <div class="srcTableWrap"><table class="srcTable" id="srcTable"></table></div>
+        <div class="srcPage">
+          <p class="srcInfo" id="srcInfo" aria-live="polite">Select a value on the left.</p>
+          <div class="srcScroll" id="srcScroll"><div class="srcMsg" id="srcMsg">The original page appears here.</div></div>
+        </div>
+      </div>
+    </section>
+  </div>
 </main>
 <footer class="footer"><div class="wrap">PDflow · Online Beta</div></footer>
 
+<style>
+.srcView{margin-top:28px;padding-top:24px;border-top:1px solid var(--line)}
+.srcView[hidden]{display:none}
+.srcView h3{margin:0 0 6px;font-size:22px;letter-spacing:-.03em}
+.srcView .sub{margin:0 0 14px;color:var(--muted);font-size:12px;line-height:1.6}
+.srcTabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+.srcTabs button{padding:6px 10px;border:1px solid var(--line2);border-radius:8px;background:#fff;color:var(--text);font-size:11px;font-weight:700;cursor:pointer}
+.srcTabs button[aria-pressed="true"]{background:var(--text);color:#fff;border-color:var(--text)}
+.srcGrid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:16px;align-items:start}
+.srcTableWrap{max-height:560px;overflow:auto;border:1px solid var(--line);border-radius:10px;background:#fff}
+.srcTable{border-collapse:collapse;font-size:11px;width:100%}
+.srcTable th{position:sticky;top:0;background:#f3f6fb;color:var(--muted);font-weight:700;padding:5px 6px;border-bottom:1px solid var(--line);font-size:10px;z-index:1}
+.srcTable td,.srcTable tbody th{border-bottom:1px solid var(--line);border-right:1px solid var(--line);padding:0;vertical-align:top}
+.srcTable tbody th{position:static;background:#f8fafc;min-width:26px;text-align:center}
+.srcTable .cellBtn{display:block;width:100%;min-width:56px;padding:5px 6px;border:0;background:none;text-align:left;font:inherit;color:var(--text);white-space:pre-line;cursor:pointer}
+.srcTable .cellBtn:hover{background:#eef3fb}
+.srcTable .cellBtn[aria-pressed="true"]{background:#dbe8ff;box-shadow:inset 0 0 0 2px #2f6df6}
+.srcPage{border:1px solid var(--line);border-radius:10px;background:#fff;padding:10px}
+.srcInfo{margin:0 0 8px;font-size:11px;color:var(--muted);min-height:16px}
+.srcScroll{max-height:520px;overflow:auto;background:#f3f4f6;border-radius:6px}
+.srcPageWrap{position:relative;margin:0 auto;line-height:0}
+.srcPageWrap canvas{display:block;max-width:100%}
+.srcBox{position:absolute;border:2px solid #2f6df6;background:rgba(47,109,246,.16);border-radius:3px;pointer-events:none;box-shadow:0 0 0 2px rgba(255,255,255,.8)}
+.srcMsg{padding:18px 8px;font-size:12px;color:var(--muted);line-height:1.6}
+@media(max-width:760px){.srcGrid{grid-template-columns:1fr}.srcPage{position:sticky;top:0;z-index:2;order:-1}.srcScroll{max-height:42vh}.srcTableWrap{max-height:420px}}
+</style>
 <script>
 const API='https://web-production-41e20.up.railway.app';
 const input=document.getElementById('pdfInput');
@@ -87,7 +129,7 @@ function selectFile(file){
   if(file.size>20*1024*1024){alert('Please keep the PDF under 20 MB.');return;}
   const dt=new DataTransfer();dt.items.add(file);input.files=dt.files;
   fileName.textContent=file.name;runBtn.disabled=false;
-  statusCard.classList.remove('show');setStep(0);
+  statusCard.classList.remove('show');setStep(0);clearSource();sourceFile=null;
 }
 input.addEventListener('change',()=>selectFile(input.files?.[0]));
 ['dragenter','dragover'].forEach(n=>drop.addEventListener(n,e=>{e.preventDefault();drop.classList.add('drag')}));
@@ -100,6 +142,124 @@ document.getElementById('sampleBtn').addEventListener('click',async()=>{
     selectFile(new File([await r.blob()],'sample-quotation.pdf',{type:'application/pdf'}));
   }catch(err){alert('Could not load the sample PDF. Please try again.');}
 });
+
+
+/* ---- Source view: draws the user's own PDF in the browser and boxes the clicked value ---- */
+const srcView=document.getElementById('srcView');
+const srcTabs=document.getElementById('srcTabs');
+const srcTableEl=document.getElementById('srcTable');
+const srcInfo=document.getElementById('srcInfo');
+const srcScroll=document.getElementById('srcScroll');
+let sourceFile=null,srcMap=null,srcTableIndex=0,srcSelected=-1,pdfDoc=null,pdfjsLoading=null,renderToken=0,shownPage=0,shownWidth=0;
+
+function colName(i){let n=i+1,out='';while(n>0){const m=(n-1)%26;out=String.fromCharCode(65+m)+out;n=Math.floor((n-1)/26)}return out}
+function clearSource(){
+  renderToken++;srcMap=null;srcTableIndex=0;srcSelected=-1;shownPage=0;shownWidth=0;
+  if(pdfDoc){try{pdfDoc.destroy()}catch(e){}pdfDoc=null}
+  srcView.hidden=true;srcTabs.innerHTML='';srcTableEl.innerHTML='';
+  srcInfo.textContent='Select a value on the left.';
+  srcScroll.innerHTML='<div class="srcMsg" id="srcMsg">The original page appears here.</div>';
+}
+async function loadSource(jobId){
+  if(srcMap&&srcMap.jobId===jobId)return;
+  try{
+    const r=await fetch(API+'/jobs/'+jobId+'/source');
+    if(!r.ok)return;
+    const m=await r.json();
+    if(!m||!Array.isArray(m.tables)||!m.tables.length)return;
+    m.jobId=jobId;srcMap=m;srcTableIndex=0;srcSelected=-1;
+    renderSourceTabs();renderSourceTable();srcView.hidden=false;
+  }catch(e){/* the source view is optional */}
+}
+function renderSourceTabs(){
+  srcTabs.innerHTML='';
+  if(srcMap.tables.length<2)return;
+  srcMap.tables.forEach((t,i)=>{
+    const b=document.createElement('button');b.type='button';b.textContent=t.name;
+    b.setAttribute('aria-pressed',String(i===srcTableIndex));
+    b.onclick=()=>{srcTableIndex=i;srcSelected=-1;renderSourceTabs();renderSourceTable();};
+    srcTabs.appendChild(b);
+  });
+}
+function renderSourceTable(){
+  const t=srcMap.tables[srcTableIndex];
+  const grid=Array.from({length:t.rows},()=>new Array(t.cols).fill(-1));
+  t.cells.forEach((c,i)=>{if(c.r<t.rows&&c.c<t.cols)grid[c.r][c.c]=i});
+  srcTableEl.innerHTML='';
+  const thead=document.createElement('thead'),hr=document.createElement('tr');
+  hr.appendChild(document.createElement('th'));
+  for(let c=0;c<t.cols;c++){const th=document.createElement('th');th.textContent=colName(c);hr.appendChild(th)}
+  thead.appendChild(hr);srcTableEl.appendChild(thead);
+  const tbody=document.createElement('tbody');
+  grid.forEach((row,r)=>{
+    const tr=document.createElement('tr'),rh=document.createElement('th');rh.textContent=String(r+1);tr.appendChild(rh);
+    row.forEach(i=>{
+      const td=document.createElement('td');
+      if(i>=0){const b=document.createElement('button');b.type='button';b.className='cellBtn';b.dataset.i=String(i);b.textContent=t.cells[i].text;b.setAttribute('aria-pressed','false');td.appendChild(b)}
+      tr.appendChild(td);
+    });
+    tbody.appendChild(tr);
+  });
+  srcTableEl.appendChild(tbody);
+}
+srcTableEl.addEventListener('click',e=>{
+  const b=e.target.closest('.cellBtn');if(!b)return;
+  selectSourceCell(Number(b.dataset.i));
+});
+async function ensurePdfjs(){
+  if(window.pdfjsLib)return;
+  if(!pdfjsLoading)pdfjsLoading=new Promise((resolve,reject)=>{
+    const s=document.createElement('script');s.src='vendor/pdfjs/pdf.min.js';
+    s.onload=resolve;s.onerror=()=>reject(new Error('Could not load the PDF viewer.'));
+    document.head.appendChild(s);
+  });
+  await pdfjsLoading;
+  window.pdfjsLib.GlobalWorkerOptions.workerSrc='vendor/pdfjs/pdf.worker.min.js';
+}
+async function ensureDoc(){
+  if(pdfDoc)return pdfDoc;
+  if(!sourceFile)throw new Error('The original file is no longer available. Run the PDF again to use this view.');
+  await ensurePdfjs();
+  const data=await sourceFile.arrayBuffer();
+  pdfDoc=await window.pdfjsLib.getDocument({data,isEvalSupported:false}).promise;
+  return pdfDoc;
+}
+async function selectSourceCell(i){
+  const t=srcMap.tables[srcTableIndex],c=t.cells[i];if(!c)return;
+  srcSelected=i;
+  srcTableEl.querySelectorAll('.cellBtn').forEach(b=>b.setAttribute('aria-pressed',String(Number(b.dataset.i)===i)));
+  srcInfo.textContent='Cell '+colName(c.c)+(c.r+1)+' \u00b7 page '+c.page+' \u00b7 \u201c'+(c.text.length>60?c.text.slice(0,57)+'\u2026':c.text)+'\u201d';
+  const token=++renderToken;
+  try{
+    const doc=await ensureDoc();
+    if(token!==renderToken)return;
+    const page=await doc.getPage(c.page);
+    if(token!==renderToken)return;
+    const base=page.getViewport({scale:1});
+    const width=Math.max(220,Math.min(720,Math.floor(srcScroll.clientWidth-2)));
+    let wrap=srcScroll.querySelector('.srcPageWrap');
+    if(!wrap||shownPage!==c.page||shownWidth!==width){
+      const k=width/base.width,dpr=Math.min(window.devicePixelRatio||1,2);
+      const viewport=page.getViewport({scale:k*dpr});
+      const canvas=document.createElement('canvas');
+      canvas.width=Math.floor(viewport.width);canvas.height=Math.floor(viewport.height);
+      canvas.style.width=width+'px';canvas.style.height=Math.floor(base.height*k)+'px';
+      await page.render({canvasContext:canvas.getContext('2d'),viewport}).promise;
+      if(token!==renderToken)return;
+      srcScroll.innerHTML='';wrap=document.createElement('div');wrap.className='srcPageWrap';wrap.style.width=width+'px';
+      wrap.appendChild(canvas);srcScroll.appendChild(wrap);shownPage=c.page;shownWidth=width;
+    }
+    wrap.querySelectorAll('.srcBox').forEach(n=>n.remove());
+    const k=width/base.width,pad=2,box=document.createElement('div');box.className='srcBox';
+    box.style.left=(c.bbox[0]*k-pad)+'px';box.style.top=(c.bbox[1]*k-pad)+'px';
+    box.style.width=((c.bbox[2]-c.bbox[0])*k+pad*2)+'px';box.style.height=((c.bbox[3]-c.bbox[1])*k+pad*2)+'px';
+    wrap.appendChild(box);
+    srcScroll.scrollTop=Math.max(0,box.offsetTop-srcScroll.clientHeight/3);
+  }catch(err){
+    if(token!==renderToken)return;
+    srcScroll.innerHTML='';const m=document.createElement('div');m.className='srcMsg';m.textContent=err.message||'Could not draw this page.';srcScroll.appendChild(m);shownPage=0;
+  }
+}
 
 function renderStatus(job){
   statusCard.classList.add('show');
@@ -147,13 +307,14 @@ function renderStatus(job){
   }
   const reset=document.createElement('button');reset.className='btn secondary';reset.type='button';reset.textContent='Try another PDF';reset.onclick=resetAll;resultActions.appendChild(reset);
 }
-function resetAll(){input.value='';fileName.textContent='No file selected';runBtn.disabled=true;activeJob=null;statusCard.classList.remove('show');setStep(0)}
+function resetAll(){clearSource();sourceFile=null;input.value='';fileName.textContent='No file selected';runBtn.disabled=true;activeJob=null;statusCard.classList.remove('show');setStep(0)}
 
 async function poll(jobId){
   for(let i=0;i<180;i++){
     const r=await fetch(API+'/jobs/'+jobId);
     const job=await r.json();
     renderStatus(job);
+    if((job.state==='ready'||job.state==='review')&&job.source_available)loadSource(job.job_id);
     if(['ready','review','no_output','error'].includes(job.state)){runBtn.disabled=false;return;}
     await new Promise(r=>setTimeout(r,1000));
   }
@@ -162,6 +323,7 @@ async function poll(jobId){
 
 runBtn.addEventListener('click',async()=>{
   const file=input.files?.[0];if(!file)return;
+  clearSource();sourceFile=file;
   runBtn.disabled=true;statusCard.classList.add('show');stateLabel.className='state';stateLabel.textContent='uploading';statusTitle.textContent='Uploading PDF…';statusText.textContent='Sending the file to the hosted PDflow worker.';summary.innerHTML='';resultActions.innerHTML='';setStep(1);
   try{
     const fd=new FormData();fd.append('file',file);

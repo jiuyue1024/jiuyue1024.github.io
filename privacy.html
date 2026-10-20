@@ -58,7 +58,7 @@
     <span class="s-tag">Privacy Policy</span>
     <h1 class="page-h1">Two upload flows.<br>Two different purposes.</h1>
     <p class="page-sub">PDflow separates automatic Online Beta conversion from manual sample review. The rules below describe each flow as it works today.</p>
-    <div class="page-meta">Last updated: October 19, 2026</div>
+    <div class="page-meta">Last updated: October 20, 2026</div>
     <div class="page-acts">
         <a href="index.html" class="btn btn-primary btn-lg">Back to PDflow</a>
     </div>
@@ -69,7 +69,7 @@
 
 <section><h2>1. Online Beta Conversion</h2><p>Try Online Beta is an automatic conversion flow. Your browser sends one PDF to PDflow's hosted worker, which returns READY, REVIEW, or NO OUTPUT. No account or email address is required for this flow.</p></section>
 
-<section><h2>2. Online Beta Result Retention</h2><p>Generated Excel results are temporary. The live service currently reports a 30-minute result window. After the first successful download, the job reports the temporary result as deleted and the same result is no longer available for download. The uploaded source PDF is deleted from the worker's temporary storage as soon as the conversion finishes or fails, and the Online Beta does not send your PDF to any third-party OCR or AI service. Hosting and infrastructure providers may still process standard connection and operational metadata (see section 5).</p></section>
+<section><h2>2. Online Beta Result Retention</h2><p>Generated Excel results are temporary. The live service currently reports a 30-minute result window. After the first successful download, the job reports the temporary result as deleted and the same result is no longer available for download. The uploaded source PDF is deleted from the worker's temporary storage as soon as the conversion finishes or fails, and the Online Beta does not send your PDF to any third-party OCR or AI service. The Online Beta also shows, for each value in the result, which page and where on the page it came from. Those locations (the value text, page number and position) are kept in memory with the temporary Excel result and deleted with it. Your PDF itself is drawn in your own browser for this view; it is not uploaded again. Hosting and infrastructure providers may still process standard connection and operational metadata (see section 5).</p></section>
 
 <section><h2>3. Manual Sample Review</h2><p>The separate sample form on the main website is a manual review flow. The contact email is used only to return the review result. The PDF and problem description are used only for PDflow testing and evaluation. Redacted samples are welcome, and the form requires you to confirm that sensitive information has been removed or anonymized before submission.</p></section>
 
