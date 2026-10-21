@@ -305,6 +305,11 @@ function renderStatus(job){
     a.className='btn';a.textContent='Download Excel';a.href=API+'/jobs/'+job.job_id+'/download';
     resultActions.appendChild(a);
   }
+  if(job.source_available){
+    const jump=document.createElement('button');jump.className='btn secondary';jump.type='button';jump.textContent='Check values against PDF \u2193';
+    jump.onclick=()=>{if(!srcView.hidden)srcView.scrollIntoView({behavior:'smooth',block:'start'});};
+    resultActions.appendChild(jump);
+  }
   const reset=document.createElement('button');reset.className='btn secondary';reset.type='button';reset.textContent='Try another PDF';reset.onclick=resetAll;resultActions.appendChild(reset);
 }
 function resetAll(){clearSource();sourceFile=null;input.value='';fileName.textContent='No file selected';runBtn.disabled=true;activeJob=null;statusCard.classList.remove('show');setStep(0)}
