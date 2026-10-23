@@ -56,7 +56,7 @@ th{color:var(--muted);font-weight:600;font-size:12px}
 <script>
 const API='https://web-production-41e20.up.railway.app';
 const $=id=>document.getElementById(id);
-const LABELS={uploads:'上传',sample_uploads:'其中示例',own_uploads:'其中自己的文件',result_ready:'成功',result_review:'需复核',result_no_output:'无输出',result_error:'失败',downloads:'下载'};
+const LABELS={uploads:'上传',sample_uploads:'其中示例',own_uploads:'其中自己的文件',result_ready:'成功',result_review:'需复核',result_no_output:'无输出',result_error:'失败',downloads:'下载',reason_no_trusted_table_structure:'拒绝·表格结构/算术不可信',reason_ocr_route_not_enabled:'拒绝·扫描件',reason_pdf_encrypted:'拒绝·加密',reason_pdf_unreadable:'拒绝·无法读取',reason_timeout:'失败·超时',reason_normalize_failed:'失败·结果无法整理',reason_no_file:'拒绝·未生成文件',reason_other:'失败·其他',flag_LINE_AMOUNT_MISMATCH:'标记·行金额对不上',flag_GRAND_TOTAL_MISMATCH:'标记·总计对不上',flag_ILLEGAL_CHARACTERS_REMOVED:'标记·移除非法字符',flag_ARITHMETIC_AUDIT_UNAVAILABLE:'标记·核对未能运行'};
 const ORDER=['uploads','sample_uploads','own_uploads','result_ready','result_review','result_no_output','result_error','downloads'];
 function label(k){return LABELS[k]||k}
 function lsGet(){try{return localStorage.getItem('pdflow_stats_key')||''}catch(e){return ''}}
